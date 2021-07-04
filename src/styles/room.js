@@ -30,10 +30,10 @@ export const Container = styled.div`
       h1 {
         font-family: 'Poppins', sans-serif;
         font-size: 24px;
-        color: #2929292e;
+        color: #29292E;
       }
 
-      span {
+      > span {
         margin-left: 16px;
         background: #e559f9;
         border-radius: 8px;
@@ -56,13 +56,13 @@ export const Container = styled.div`
         min-height: 130px;
       }
 
-      div {
+      section {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-top: 16px;
 
-        span {
+        > span {
           margin-left: 0;
           padding: 0;
           font-size: 14px;
@@ -82,5 +82,23 @@ export const Container = styled.div`
         }
       }
     }
+  }
+`;
+
+export const UserInfoContainer = styled.article `
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+  }
+
+  span {
+    margin-left: 8px;
+    color: #29292e;
+    font-weight: 500;
+    font-size: 14px;
   }
 `;
