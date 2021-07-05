@@ -1,13 +1,13 @@
 import { useContext, FormEvent, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
-import illustrationImg from '../assets/images/illustration.svg';
-import logoImg from '../assets/images/logo.svg';
+import illustrationImg from '../../assets/images/illustration.svg';
+import logoImg from '../../assets/images/logo.svg';
 
-import { Container } from '../styles/auth';
-import { Button } from '../components/Button';
-import { AuthContext } from '../contexts/AuthContext';
-import { database } from '../services/firebase';
+import { Container } from '../Home/styles';
+import { Button } from '../../components/Button';
+import { AuthContext } from '../../contexts/AuthContext';
+import { database } from '../../services/firebase';
 
 export function NewRoom() {
   const { user } = useContext(AuthContext);

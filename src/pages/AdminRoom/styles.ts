@@ -15,6 +15,16 @@ export const Container = styled.div`
       > img {
         max-height: 45px;
       }
+
+      > div {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        button {
+          height: 40px;
+        }
+      }
     }
   }
 
@@ -22,7 +32,7 @@ export const Container = styled.div`
     max-width: 800px;
     margin: 0 auto;
 
-    div {
+    .room-title {
       margin: 32px 0 24px;
       display: flex;
       align-items: center;
@@ -82,23 +92,9 @@ export const Container = styled.div`
         }
       }
     }
-  }
-`;
 
-export const UserInfoContainer = styled.article `
-  display: flex;
-  align-items: center;
-
-  img {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-  }
-
-  span {
-    margin-left: 8px;
-    color: #29292e;
-    font-weight: 500;
-    font-size: 14px;
+    .question-list {
+      margin-top: 32px;
+    }
   }
 `;

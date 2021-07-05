@@ -1,16 +1,16 @@
 import { useHistory } from 'react-router-dom';
 
-import illustrationImg from '../assets/images/illustration.svg';
-import logoImg from '../assets/images/logo.svg';
-import googleIconImg from '../assets/images/google-icon.svg';
+import illustrationImg from '../../assets/images/illustration.svg';
+import logoImg from '../../assets/images/logo.svg';
+import googleIconImg from '../../assets/images/google-icon.svg';
 
-import { Container } from '../styles/auth';
-import { Button } from '../components/Button';
+import { Container } from './styles';
+import { Button } from '../../components/Button';
 
-import { useAuth } from '../hooks/useAuth';
+import { useAuth } from '../../hooks/useAuth';
 import { FormEvent } from 'react';
 import { useState } from 'react';
-import { database } from '../services/firebase';
+import { database } from '../../services/firebase';
 
 //webpack - Module Bundler (todas as importações passam pelo webpack e transforma em algo utilizável pela aplicação )
 
