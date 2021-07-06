@@ -11,13 +11,34 @@ export const ButtonRoomCode = styled.button`
 
   display: flex;
 
+  transition: filter 0.1s;
+
+  &:hover {
+    div {
+      filter: brightness(1.2);
+    }
+  }
+
   div {
     background: #835AFD;
+    width: 50px;
     padding: 0 12px;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    img {
+      height: 20px;
+      width: 20px;
+      transition: height 0.3s, width 0.3s;
+    }
+
+    svg {
+      height: 0;
+      width: 0;
+      transition: height 0.3s, width 0.3s;
+    }
   }
 
   span {

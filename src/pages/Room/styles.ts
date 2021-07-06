@@ -106,3 +106,7 @@ export const UserInfoContainer = styled.article `
     font-size: 14px;
   }
 `;
+
+export const likeButton = styled.button<{isLiked: boolean}>`
+  
+`

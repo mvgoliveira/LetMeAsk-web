@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.div<{ isLiked?: boolean }>`
   display: flex;
   flex-direction: column;
   background: #fefefe;
@@ -36,6 +36,28 @@ export const Container = styled.div`
         margin-left: 8px;
         color: #737380;
         font-size: 14px;
+      }
+    }
+
+    button {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+
+      &.like-button {
+        display: flex;
+        align-items: flex-end;
+        color: ${ props => props.isLiked ? "#835AFD" : "#737380"};
+        gap: 8px;
+        transition: filter 0.1s;
+
+        svg path {
+          stroke: ${ props => props.isLiked ? "#835AFD" : "#737380"};
+        }
+
+        &:hover {
+          filter: brightness(0.85);
+        }
       }
     }
   }
