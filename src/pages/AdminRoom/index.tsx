@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 
 import logoImg from '../../assets/images/logo.svg'
+import deleteImg from '../../assets/images/delete.svg'
 
 import { RoomCode } from '../../components/RoomCode';
 import { Question } from '../../components/Question';
@@ -8,6 +9,10 @@ import { Button } from '../../components/Button';
 
 import { useRoom } from '../../hooks/useRoom';
 import { Container } from './styles';
+import { useState } from 'react';
+import { DeleteQuestionModal } from '../../components/DeleteQuestionModal';
+import { useEffect } from 'react';
+import toast from 'react-hot-toast';
 
 
 type RoomParams = {
@@ -18,9 +23,22 @@ export function AdminRoom() {
   const params = useParams<RoomParams>();
   const roomId = params.id;
   const { title, questions } = useRoom(roomId);
+  const [modalQuestionId, setModalQuestionId] = useState('');
+
+  function handleDeleteQuestion() {   
+
+    setModalQuestionId("");
+    toast.success("Pergunta Removida!")
+  }
 
   return (
     <Container> 
+
+      <DeleteQuestionModal isOpen={modalQuestionId === "" ? false : true}>
+        <button type="button" onClick={() => setModalQuestionId("")}>Cancelar</button>
+        <button type="button" onClick={handleDeleteQuestion}>Sim, excluir</button>
+      </DeleteQuestionModal>
+
       <header>
         <section>
           <img src={logoImg} alt="LetMeAsk" />
@@ -45,7 +63,11 @@ export function AdminRoom() {
         <div className="question-list">
           { questions.map(question => {
             return (
-              <Question key={question.id} content={question.content} author={question.author}/>
+              <Question key={question.id} content={question.content} author={question.author}>
+                <button type="button" onClick={() => setModalQuestionId(question.id)}>
+                  <img src={deleteImg} alt="Remover pergunta" />
+                </button>
+              </Question>
             )
           }) }
         </div>

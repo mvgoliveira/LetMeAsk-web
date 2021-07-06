@@ -13,7 +13,6 @@ import { Container, UserInfoContainer } from './styles';
 import { Question } from '../../components/Question';
 import { useRoom } from '../../hooks/useRoom';
 
-
 type RoomParams = {
   id: string;
 }
@@ -51,13 +50,16 @@ export function Room() {
     setNewQuestion('');
   }
 
-  async function handleLikeQuestion(questionId: string) {
-    await database.ref(`rooms/${roomId}/questions/${questionId}/likes`).push({
-      authorId: user?.id
-    })
+  async function handleLikeQuestion(questionId: string, likeId: string) {
+    if (likeId) {
+      await database.ref(`rooms/${roomId}/questions/${questionId}/likes/${likeId}`).remove()
+    } else {
+      await database.ref(`rooms/${roomId}/questions/${questionId}/likes`).push({
+        authorId: user?.id
+      })
+    }
   }
   
-
   return (
     <Container>
       <header>
@@ -106,13 +108,13 @@ export function Room() {
                 key={question.id} 
                 content={question.content} 
                 author={question.author}
-                liked={question.hasLiked}
+                liked={question.likeId !== undefined}
               >
                 <button 
                   className="like-button" 
                   type="button" 
                   aria-label="Marcar como gostei"
-                  onClick={() => handleLikeQuestion(question.id)}
+                  onClick={() => handleLikeQuestion(question.id, question.likeId ?? "")}
                 >
                   { question.likeCount > 0 && <span>{question.likeCount}</span> }
 

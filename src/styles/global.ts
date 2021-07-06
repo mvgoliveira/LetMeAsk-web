@@ -15,4 +15,8 @@ export const GlobalStyle = createGlobalStyle`
   body, input, button, textarea {
     font: 400 16px 'Roboto', sans-serif;
   }
+
+  .ReactModal__Body--open {
+    overflow: hidden;
+  }
 `;
