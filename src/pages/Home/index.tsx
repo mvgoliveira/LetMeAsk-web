@@ -11,6 +11,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { FormEvent } from 'react';
 import { useState } from 'react';
 import { database } from '../../services/firebase';
+import toast from 'react-hot-toast';
 
 //webpack - Module Bundler (todas as importações passam pelo webpack e transforma em algo utilizável pela aplicação )
 
@@ -39,7 +40,12 @@ export function Home() {
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
     if (!roomRef.exists()) {
-      alert('Room does not exists');
+      toast.error("Room does not exists")
+      return;
+    }
+
+    if (roomRef.val().closedAt) {
+      toast.error("Room already closed")
       return;
     }
 

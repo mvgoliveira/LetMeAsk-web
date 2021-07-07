@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 import { database } from '../../services/firebase';
 import { useAuth } from '../../hooks/useAuth';
@@ -12,13 +12,15 @@ import { RoomCode } from '../../components/RoomCode';
 import { Container, UserInfoContainer } from './styles';
 import { Question } from '../../components/Question';
 import { useRoom } from '../../hooks/useRoom';
+import toast from 'react-hot-toast';
+import { useEffect } from 'react';
 
 type RoomParams = {
   id: string;
 }
 
 export function Room() {
-  const { user } = useAuth();
+  const { user, singInWithGoogle } = useAuth();
   const params = useParams<RoomParams>();
   const [newQuestion, setNewQuestion] = useState('');
   const roomId = params.id;
@@ -32,14 +34,15 @@ export function Room() {
     }
 
     if (!user) {
-      throw new Error('You must be logged in');
+      toast.error('You must be logged in');
+      return;
     }
 
     const question = {
       content: newQuestion,
       author: {
-        name: user.name,
-        avatar: user.avatar
+        name: user?.name,
+        avatar: user?.avatar
       },
       isHighlighted: false,
       isAnswered: false
@@ -51,6 +54,11 @@ export function Room() {
   }
 
   async function handleLikeQuestion(questionId: string, likeId: string) {
+    if (!user) {
+      toast.error('You must be logged in');
+      return;
+    }
+
     if (likeId) {
       await database.ref(`rooms/${roomId}/questions/${questionId}/likes/${likeId}`).remove()
     } else {
@@ -58,6 +66,10 @@ export function Room() {
         authorId: user?.id
       })
     }
+  }
+
+  async function handleSignIn() {
+    await singInWithGoogle()
   }
   
   return (
@@ -89,7 +101,7 @@ export function Room() {
 
           <section>
             { !user 
-              ? (<span>Para enviar uma pergunta, <button>faça seu login</button>.</span>) 
+              ? (<span>Para enviar uma pergunta, <button onClick={handleSignIn}>faça seu login</button>.</span>) 
               
               : <UserInfoContainer>
                   <img src={user.avatar} alt={user.name} />

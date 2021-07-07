@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.div<{verticalScroll: boolean}>`
+  min-height: 100vh;
+  padding-bottom: 30px;
+  overflow-y: ${props => props.verticalScroll ? "hidden" : "auto"};
+
   header {
     padding: 24px;
     border-bottom: 1px solid #e2e2e2;

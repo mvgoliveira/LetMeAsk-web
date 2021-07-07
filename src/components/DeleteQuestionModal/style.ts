@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div<{isOpen: boolean}>`
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   right: auto;
@@ -9,8 +9,8 @@ export const Container = styled.div<{isOpen: boolean}>`
   margin-right: -50%;
   transform: translate(-50%, -50%);
   
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: rgba(0,0,0,0.8);
   backdrop-filter: blur(2px);
   
