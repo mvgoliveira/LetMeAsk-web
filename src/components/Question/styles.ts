@@ -1,19 +1,17 @@
 import styled from 'styled-components';
 
-export const Container = styled.div<{ isLiked?: boolean }>`
+export const Container = styled.div<{ isLiked?: boolean, isAnswered: boolean, isHighlighted: boolean }>`
   display: flex;
+  flex: 1;
   flex-direction: column;
-  background: #fefefe;
+  background: ${props => props.isHighlighted ? "#fefefe" : "#fefefe"};
+  border: ${props => props.isHighlighted ? "1px solid #835AFD" : "none"};
   border-radius: 8px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
   padding: 24px;
 
-  & + .question {
-    margin-top: 8px;
-  }
-
   p {
-    color: #29292e
+    color: #29292e;
   }
 
   footer {
@@ -39,6 +37,13 @@ export const Container = styled.div<{ isLiked?: boolean }>`
       }
     }
 
+    div {
+      &:last-child {
+        display: flex;
+        gap: 16px;
+      }
+    }
+
     button {
       border: none;
       background: transparent;
@@ -60,5 +65,20 @@ export const Container = styled.div<{ isLiked?: boolean }>`
         }
       }
     }
+  }
+`;
+
+export const QuestionContainer = styled.section<{isHighlighted: boolean}>`
+  display: flex;
+
+  & + .question {
+    margin-top: 10px;
+  }
+
+  .highlight {
+    background: #835AFD;
+    width: ${props => props.isHighlighted ? "15px" : "0"};
+    margin-right: ${props => props.isHighlighted ? "5px" : "0"};
+    border-radius: 8px;
   }
 `;

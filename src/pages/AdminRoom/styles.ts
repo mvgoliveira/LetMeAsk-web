@@ -99,6 +99,7 @@ export const Container = styled.div<{verticalScroll: boolean}>`
 
     .question-list {
       margin-top: 32px;
+      
     }
   }
 `;

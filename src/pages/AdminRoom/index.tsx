@@ -1,7 +1,9 @@
 import { useHistory, useParams } from 'react-router-dom';
 
-import logoImg from '../../assets/images/logo.svg'
-import deleteImg from '../../assets/images/delete.svg'
+import logoImg from '../../assets/images/logo.svg';
+import deleteImg from '../../assets/images/delete.svg';
+import checkImg from '../../assets/images/check.svg';
+import answerImg from '../../assets/images/answer.svg';
 
 import { RoomCode } from '../../components/RoomCode';
 import { Question } from '../../components/Question';
@@ -42,6 +44,18 @@ export function AdminRoom() {
     })
     history.replace("/");
   }
+  
+  async function handleHighlightQuestion(questionId: string, highlighted: boolean) {
+    database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+      isHighlighted: !highlighted
+    })
+  }
+
+  async function handleCheckQuestionAsAnswered(questionId: string) {
+    database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+      isAnswered: true
+    })
+  }
 
   return (
     <Container verticalScroll={modalQuestionId !== ""}> 
@@ -73,7 +87,21 @@ export function AdminRoom() {
         <div className="question-list">
           { questions.map(question => {
             return (
-              <Question key={question.id} content={question.content} author={question.author}>
+              <Question 
+                key={question.id} 
+                content={question.content} 
+                author={question.author} 
+                isHighlighted={question.isHighlighted}
+                isAnswered={question.isAnswered} 
+              >
+                <button type="button" onClick={() => handleHighlightQuestion(question.id, question.isHighlighted)}>
+                  <img src={checkImg} alt="Marcar pergunta como respondida"/>
+                </button>
+
+                <button type="button" onClick={() => handleCheckQuestionAsAnswered(question.id)}>
+                  <img src={answerImg} alt="Destacar pergunta"/>
+                </button>
+
                 <button type="button" onClick={() => setModalQuestionId(question.id)}>
                   <img src={deleteImg} alt="Remover pergunta"/>
                 </button>
