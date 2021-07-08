@@ -5,6 +5,7 @@ import { database } from '../../services/firebase';
 import { useAuth } from '../../hooks/useAuth';
 
 import logoImg from '../../assets/images/logo.svg';
+import emptyQuestionImg from '../../assets/images/empty-questions.svg';
 
 import { Button } from '../../components/Button';
 import { RoomCode } from '../../components/RoomCode';
@@ -13,7 +14,6 @@ import { Container, UserInfoContainer } from './styles';
 import { Question } from '../../components/Question';
 import { useRoom } from '../../hooks/useRoom';
 import toast from 'react-hot-toast';
-import { useEffect } from 'react';
 
 type RoomParams = {
   id: string;
@@ -114,6 +114,15 @@ export function Room() {
         </form>
         
         <div className="question-list">
+          {questions.length === 0 
+            ? <div className="emptyQuestions">
+              <img src={emptyQuestionImg} alt="balão de perguntas" />
+                <span>Nenhuma pergunta por aqui...</span>
+                <p>Seja a primeira pessoa a fazer uma pergunta!</p>
+              </div> 
+            
+            : <></>}
+
           { questions.map(question => {
             return (
               <Question 

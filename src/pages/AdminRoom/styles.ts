@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div<{verticalScroll: boolean}>`
   min-height: 100vh;
   padding-bottom: 30px;
+  padding: 0 20px 30px 20px;
   overflow-y: ${props => props.verticalScroll ? "hidden" : "auto"};
 
   header {
@@ -18,6 +19,7 @@ export const Container = styled.div<{verticalScroll: boolean}>`
 
       > img {
         max-height: 45px;
+        margin-right: 30px;
       }
 
       > div {
@@ -35,6 +37,7 @@ export const Container = styled.div<{verticalScroll: boolean}>`
   main {
     max-width: 800px;
     margin: 0 auto;
+    height: 100%;
 
     .room-title {
       margin: 32px 0 24px;
@@ -94,6 +97,33 @@ export const Container = styled.div<{verticalScroll: boolean}>`
             cursor: pointer;
           }
         }
+      }
+    }
+
+    .emptyQuestions {
+      justify-self: flex-end;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 150px;
+      text-align: center;
+
+      img {
+        width: 150px;
+        height: 150px;
+      }
+      span {
+        font-family: "Poppins";
+        font-weight: 600;
+        margin-top: 16px;
+      }
+
+      p {
+        width: 284px;
+        margin-top: 8px;
+        font-size: 14px;
+        color: #737380;
       }
     }
 

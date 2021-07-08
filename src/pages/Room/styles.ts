@@ -86,6 +86,32 @@ export const Container = styled.div`
       }
     }
 
+    .emptyQuestions {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 100px;
+      text-align: center;
+
+      img {
+        width: 150px;
+        height: 150px;
+      }
+      span {
+        font-family: "Poppins";
+        font-weight: 600;
+        margin-top: 16px;
+      }
+      
+      p {
+        width: 284px;
+        margin-top: 8px;
+        font-size: 14px;
+        color: #737380;
+      }
+    }
+
     .question-list {
       margin-top: 32px;
     }
