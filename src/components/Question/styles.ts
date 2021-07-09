@@ -4,7 +4,7 @@ export const Container = styled.div<{ isLiked?: boolean, isAnswered: boolean, is
   display: flex;
   flex: 1;
   flex-direction: column;
-  background: ${props => props.isHighlighted ? "#fefefe" : "#fefefe"};
+  background: ${props => props.isAnswered ? "#DBDCDD" : "#fefefe"};
   border: ${props => props.isHighlighted ? "1px solid #835AFD" : "none"};
   border-radius: 8px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
@@ -49,6 +49,21 @@ export const Container = styled.div<{ isLiked?: boolean, isAnswered: boolean, is
       background: transparent;
       cursor: pointer;
 
+      &.highlight-button {
+        svg path {
+          stroke: ${props => props.isHighlighted ? "#835AFD" : ""};
+        }
+        svg circle {
+          stroke: ${props => props.isHighlighted ? "#835AFD" : ""};
+        }
+      }
+
+      &.answered-button{
+        svg path {
+          stroke: ${props => props.isAnswered ? "#835AFD" : ""};
+        }
+      }
+
       &.like-button {
         display: flex;
         align-items: flex-end;
@@ -77,7 +92,7 @@ export const QuestionContainer = styled.section<{isHighlighted: boolean}>`
 
   .highlight {
     background: #835AFD;
-    width: ${props => props.isHighlighted ? "15px" : "0"};
+    
     margin-right: ${props => props.isHighlighted ? "5px" : "0"};
     border-radius: 8px;
   }

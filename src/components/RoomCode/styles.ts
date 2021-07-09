@@ -15,7 +15,7 @@ export const ButtonRoomCode = styled.button`
 
   &:hover {
     div {
-      filter: brightness(1.2);
+      filter: brightness(0.95);
     }
   }
 

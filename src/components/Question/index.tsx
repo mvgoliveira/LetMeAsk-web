@@ -23,14 +23,18 @@ export function Question({
 }: QuestionProps) {
 
   return (
-    <QuestionContainer isHighlighted={isHighlighted} className="question">
+    <QuestionContainer isHighlighted={isHighlighted && !isAnswered} className="question">
       <article className="highlight">
+        
+      </article>
+
+      <article className="answered">
         
       </article>
 
       <Container 
         isLiked={liked}
-        isHighlighted={isHighlighted} 
+        isHighlighted={isHighlighted && !isAnswered} 
         isAnswered={isAnswered} 
       >
         <p> {content} </p>
