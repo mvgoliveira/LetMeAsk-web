@@ -3,6 +3,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import logoImg from '../../assets/images/logo.svg';
 import deleteImg from '../../assets/images/delete.svg';
 import emptyQuestionImg from '../../assets/images/empty-questions.svg';
+import disableImg from '../../assets/images/disable.svg'
 
 import { RoomCode } from '../../components/RoomCode';
 import { Question } from '../../components/Question';
@@ -22,7 +23,7 @@ type RoomParams = {
 export function AdminRoom() {
   const params = useParams<RoomParams>();
   const roomId = params.id;
-  const { title, questions } = useRoom(roomId);
+  const { title, questions, isEnded } = useRoom(roomId);
   const [modalQuestionId, setModalQuestionId] = useState('');
   const [modalRoomId, setModalRoomId] = useState('');
   const history = useHistory();
@@ -80,7 +81,9 @@ export function AdminRoom() {
           <img src={logoImg} alt="LetMeAsk" />
           <div>
             <RoomCode code={params.id}/>
-            <Button isOutlined onClick={() => setModalRoomId(roomId)}>Encerrar Sala</Button>
+            { !isEnded && 
+              <Button isOutlined onClick={() => setModalRoomId(roomId)}>Encerrar Sala</Button>
+            }
           </div>
         </section>
       </header>
@@ -93,9 +96,18 @@ export function AdminRoom() {
             ? <span>{questions.length} perguntas</span> 
             : <span>{questions.length} pergunta</span> 
           }
+
+          {
+            isEnded && (
+              <span className="ended-room-shield">
+                sala encerrada
+              </span>
+            )
+          }
         </div>
         
         <div className="question-list">
+
           {questions.length === 0 
             ? <div className="emptyQuestions">
               <img src={emptyQuestionImg} alt="balão de perguntas" />
@@ -104,6 +116,7 @@ export function AdminRoom() {
               </div> 
             
             : <></>}
+
           { questions.map(question => {
             return (
               <Question 

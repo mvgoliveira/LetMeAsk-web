@@ -24,7 +24,7 @@ export function Room() {
   const params = useParams<RoomParams>();
   const [newQuestion, setNewQuestion] = useState('');
   const roomId = params.id;
-  const { title, questions } = useRoom(roomId);
+  const { title, questions, isEnded } = useRoom(roomId);
 
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
@@ -73,7 +73,7 @@ export function Room() {
   }
   
   return (
-    <Container>
+    <Container isEnded={isEnded}>
       <header>
         <section>
           <img src={logoImg} alt="LetMeAsk" />
@@ -89,15 +89,36 @@ export function Room() {
             ? <span>{questions.length} perguntas</span> 
             : <span>{questions.length} pergunta</span> 
           }
+
+          {
+            isEnded && (
+              <span className="ended-room-shield">
+                sala encerrada
+              </span>
+            )
+          }
           
         </div>
 
         <form onSubmit={handleSendQuestion}>
-          <textarea 
-            placeholder="O que você quer perguntar?"
-            onChange={event => setNewQuestion(event.target.value)}
-            value={newQuestion}
-          />
+          { isEnded 
+            ? (
+                <textarea 
+                  placeholder="Sala encerrada"
+                  onChange={event => setNewQuestion(event.target.value)}
+                  value={newQuestion}
+                  disabled={isEnded}
+                />
+              ) 
+            : (
+                <textarea 
+                  placeholder="O que você quer perguntar?"
+                  onChange={event => setNewQuestion(event.target.value)}
+                  value={newQuestion}
+                />
+              )
+          }
+          
 
           <section>
             { !user 
@@ -109,7 +130,7 @@ export function Room() {
                 </UserInfoContainer> 
             }
 
-            <Button type="submit" disabled={!user}>Enviar pergunta</Button>
+            <Button type="submit" disabled={!user || isEnded}>Enviar pergunta</Button>
           </section>
         </form>
         
@@ -133,7 +154,7 @@ export function Room() {
                 isHighlighted={question.isHighlighted}
                 isAnswered={question.isAnswered}
               >
-                {!question.isAnswered && (
+                {!question.isAnswered && !isEnded && (
                   <button 
                     className="like-button" 
                     type="button" 

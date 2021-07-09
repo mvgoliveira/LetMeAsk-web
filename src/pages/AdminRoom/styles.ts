@@ -59,6 +59,16 @@ export const Container = styled.div<{verticalScroll: boolean}>`
         font-weight: 500;
         font-size: 14px;
       }
+
+      .ended-room-shield {
+        margin-left: 16px;
+        background: #E73F5D;
+        border-radius: 8px;
+        padding: 8px 16px;
+        color: #fff;
+        font-weight: 500;
+        font-size: 14px;
+      }
     }
 
     form {

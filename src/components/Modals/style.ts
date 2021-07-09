@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div<{isOpen: boolean}>`
   position: fixed;
+  z-index: 2;
   top: 50%;
   left: 50%;
   right: auto;

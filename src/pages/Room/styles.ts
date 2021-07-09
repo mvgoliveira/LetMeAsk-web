@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.div<{isEnded: boolean}>`
   min-height: 100vh;
   padding-bottom: 30px;
 
@@ -45,6 +45,16 @@ export const Container = styled.div`
         font-weight: 500;
         font-size: 14px;
       }
+
+      .ended-room-shield {
+        margin-left: 16px;
+        background: #E73F5D;
+        border-radius: 8px;
+        padding: 8px 16px;
+        color: #fff;
+        font-weight: 500;
+        font-size: 14px;
+      }
     }
 
     form {
@@ -55,8 +65,13 @@ export const Container = styled.div`
         border-radius: 8px;
         background: #fefefe;
         box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-        resize: vertical;
+        resize: ${props => props.isEnded ? "none" : "vertical"};
         min-height: 130px;
+
+        &::placeholder {
+          text-align: center;
+          line-height: 95px;
+        }
       }
 
       section {
