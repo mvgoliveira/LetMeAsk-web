@@ -11,7 +11,7 @@ import { Button } from '../../components/Button';
 import { useRoom } from '../../hooks/useRoom';
 import { Container } from './styles';
 import { useState } from 'react';
-import { DeleteQuestionModal } from '../../components/DeleteQuestionModal';
+import { DeleteQuestionModal, EndRoomModal } from '../../components/Modals';
 import toast from 'react-hot-toast';
 import { database } from '../../services/firebase';
 
@@ -24,6 +24,7 @@ export function AdminRoom() {
   const roomId = params.id;
   const { title, questions } = useRoom(roomId);
   const [modalQuestionId, setModalQuestionId] = useState('');
+  const [modalRoomId, setModalRoomId] = useState('');
   const history = useHistory();
 
   async function handleDeleteQuestion() {   
@@ -38,9 +39,15 @@ export function AdminRoom() {
   }
 
   async function handleEndRoom() {
-    await database.ref(`rooms/${roomId}`).update({
-      closedAt: new Date(),
-    })
+    toast.promise(
+      database.ref(`rooms/${roomId}`).update({
+        closedAt: new Date(),
+      }), {
+        loading: 'Encerrando...',
+        success: <b>Sala encerrada</b>,
+        error: <b>Não foi possível encerrar a sala</b>
+      }
+    )
     history.replace("/");
   }
   
@@ -63,12 +70,17 @@ export function AdminRoom() {
         <button type="button" onClick={handleDeleteQuestion}>Sim, excluir</button>
       </DeleteQuestionModal>
 
+      <EndRoomModal isOpen={modalRoomId === "" ? false : true}>
+        <button type="button" onClick={() => setModalRoomId("")}>Cancelar</button>
+        <button type="button" onClick={handleEndRoom}>Sim, encerrar</button>
+      </EndRoomModal>
+
       <header>
         <section>
           <img src={logoImg} alt="LetMeAsk" />
           <div>
             <RoomCode code={params.id}/>
-            <Button isOutlined onClick={handleEndRoom}>Encerrar Sala</Button>
+            <Button isOutlined onClick={() => setModalRoomId(roomId)}>Encerrar Sala</Button>
           </div>
         </section>
       </header>
