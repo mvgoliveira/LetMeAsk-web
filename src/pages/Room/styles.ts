@@ -69,8 +69,8 @@ export const Container = styled.div<{isEnded: boolean}>`
         min-height: 130px;
 
         &::placeholder {
-          text-align: center;
-          line-height: 95px;
+          text-align: ${props => props.isEnded && "center"};
+          line-height: ${props => props.isEnded && "95px"};
         }
       }
 
