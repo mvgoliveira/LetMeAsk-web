@@ -1,4 +1,3 @@
-import toast from 'react-hot-toast';
 import copyImg from '../../assets/images/copy.svg'; 
 import { FiCheck } from 'react-icons/fi';
 

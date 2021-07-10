@@ -3,7 +3,6 @@ import { useHistory, useParams } from 'react-router-dom';
 import logoImg from '../../assets/images/logo.svg';
 import deleteImg from '../../assets/images/delete.svg';
 import emptyQuestionImg from '../../assets/images/empty-questions.svg';
-import disableImg from '../../assets/images/disable.svg'
 
 import { RoomCode } from '../../components/RoomCode';
 import { Question } from '../../components/Question';
