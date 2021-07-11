@@ -23,7 +23,7 @@ export const Container = styled.div<{isOpen: boolean}>`
 export const Modal = styled.div`
   width: 590px;
   height: 362px;
-  background: #fff;
+  background: var(--background);
 
   display: flex;
   flex-direction: column;

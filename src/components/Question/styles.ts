@@ -4,14 +4,14 @@ export const Container = styled.div<{ isLiked?: boolean, isAnswered: boolean, is
   display: flex;
   flex: 1;
   flex-direction: column;
-  background: ${props => props.isAnswered ? "#DBDCDD" : "#fefefe"};
-  border: ${props => props.isHighlighted ? "1px solid #835AFD" : "none"};
+  background: ${props => props.isAnswered ? "var(--answered-question)" : "var(--input);"};
+  border: ${props => props.isHighlighted ? "1px solid var(--purple)" : "none"};
   border-radius: 8px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
   padding: 24px;
 
   p {
-    color: #29292e;
+    color: var(--text-200);
   }
 
   footer {
@@ -32,7 +32,7 @@ export const Container = styled.div<{ isLiked?: boolean, isAnswered: boolean, is
 
       span {
         margin-left: 8px;
-        color: #737380;
+        color: var(--text-300);
         font-size: 14px;
       }
     }
@@ -51,28 +51,28 @@ export const Container = styled.div<{ isLiked?: boolean, isAnswered: boolean, is
 
       &.highlight-button {
         svg path {
-          stroke: ${props => props.isHighlighted ? "#835AFD" : ""};
+          stroke: ${props => props.isHighlighted ? "var(--purple)" : ""};
         }
         svg circle {
-          stroke: ${props => props.isHighlighted ? "#835AFD" : ""};
+          stroke: ${props => props.isHighlighted ? "var(--purple)" : ""};
         }
       }
 
       &.answered-button{
         svg path {
-          stroke: ${props => props.isAnswered ? "#835AFD" : ""};
+          stroke: ${props => props.isAnswered ? "var(--purple)" : ""};
         }
       }
 
       &.like-button {
         display: flex;
         align-items: flex-end;
-        color: ${ props => props.isLiked ? "#835AFD" : "#737380"};
+        color: ${ props => props.isLiked ? "var(--purple)" : "var(--text-300)"};
         gap: 8px;
         transition: filter 0.1s;
 
         svg path {
-          stroke: ${ props => props.isLiked ? "#835AFD" : "#737380"};
+          stroke: ${ props => props.isLiked ? "var(--purple)" : "var(--text-300)"};
         }
 
         &:hover {
@@ -91,7 +91,7 @@ export const QuestionContainer = styled.section<{isHighlighted: boolean}>`
   }
 
   .highlight {
-    background: #835AFD;
+    background: var(--purple);
     
     margin-right: ${props => props.isHighlighted ? "5px" : "0"};
     border-radius: 8px;

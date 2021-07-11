@@ -14,14 +14,14 @@ export function RoomCode(props: RoomCodeProps) {
 
     //style
     document.getElementById('Room-Code')!.innerHTML = "Copiado!"
-    document.getElementById('Room-Code')!.style.color = "#835AFD"
+    document.getElementById('Room-Code')!.style.color = "var(--purple-white)"
     document.getElementById('copyIcon')!.style.height = "0"
     document.getElementById('copyIcon')!.style.width = "0"
     document.getElementById('CheckMarkIcon')!.style.height = "20px"
     document.getElementById('CheckMarkIcon')!.style.width = "20px"
     setTimeout(() => {
       document.getElementById('Room-Code')!.innerHTML = `Sala #${props.code}`
-      document.getElementById('Room-Code')!.style.color = "#000"
+      document.getElementById('Room-Code')!.style.color = "var(--text-100)"
       document.getElementById('copyIcon')!.style.height = "20px"
       document.getElementById('copyIcon')!.style.width = "20px"
       document.getElementById('CheckMarkIcon')!.style.height = "0"

@@ -5,8 +5,9 @@ export const Container = styled.div<{isEnded: boolean}>`
   padding-bottom: 30px;
 
   header {
+    background: var(--background);
     padding: 24px;
-    border-bottom: 1px solid #e2e2e2;
+    border-bottom: 1px solid var(--header-border);
 
     section {
       max-width: 1120px;
@@ -33,12 +34,12 @@ export const Container = styled.div<{isEnded: boolean}>`
       h1 {
         font-family: 'Poppins', sans-serif;
         font-size: 24px;
-        color: #29292E;
+        color: var(--text-100);
       }
 
       > span {
         margin-left: 16px;
-        background: #e559f9;
+        background: var(--pink);
         border-radius: 8px;
         padding: 8px 16px;
         color: #fff;
@@ -48,7 +49,7 @@ export const Container = styled.div<{isEnded: boolean}>`
 
       .ended-room-shield {
         margin-left: 16px;
-        background: #E73F5D;
+        background: var(--red);
         border-radius: 8px;
         padding: 8px 16px;
         color: #fff;
@@ -63,12 +64,14 @@ export const Container = styled.div<{isEnded: boolean}>`
         border: 0;
         padding: 16px;
         border-radius: 8px;
-        background: #fefefe;
+        background: var(--input);
         box-shadow: 0 2px 12px rgba(0,0,0,0.04);
         resize: ${props => props.isEnded ? "none" : "vertical"};
         min-height: 130px;
+        color: var(--text-200);
 
         &::placeholder {
+          color: var(--text-300);
           text-align: ${props => props.isEnded && "center"};
           line-height: ${props => props.isEnded && "95px"};
         }
@@ -84,14 +87,14 @@ export const Container = styled.div<{isEnded: boolean}>`
           margin-left: 0;
           padding: 0;
           font-size: 14px;
-          color: #737380;
+          color: var(--text-300);
           font-weight: 500;
           background: transparent;
 
           button {
             background: transparent;
             border: 0;
-            color: #835AFD;
+            color: var(--purple);
             text-decoration: underline;
             font-size: 14px;
             font-weight: 500;
@@ -108,6 +111,7 @@ export const Container = styled.div<{isEnded: boolean}>`
       align-items: center;
       margin-top: 100px;
       text-align: center;
+      color: var(--text-100);
 
       img {
         width: 150px;
@@ -145,7 +149,7 @@ export const UserInfoContainer = styled.article `
 
   span {
     margin-left: 8px;
-    color: #29292e;
+    color: var(--text-200);
     font-weight: 500;
     font-size: 14px;
   }

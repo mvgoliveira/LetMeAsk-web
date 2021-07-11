@@ -2,6 +2,7 @@ import { useHistory } from 'react-router-dom';
 
 import illustrationImg from '../../assets/images/illustration.svg';
 import logoImg from '../../assets/images/logo.svg';
+import logoWhiteImg from '../../assets/images/logo-white.svg';
 import googleIconImg from '../../assets/images/google-icon.svg';
 
 import { Container } from './styles';
@@ -12,12 +13,14 @@ import { FormEvent } from 'react';
 import { useState } from 'react';
 import { database } from '../../services/firebase';
 import toast from 'react-hot-toast';
+import { useTheme } from '../../hooks/useTheme';
 
 //webpack - Module Bundler (todas as importações passam pelo webpack e transforma em algo utilizável pela aplicação )
 
 export function Home() {
   const history = useHistory();
   const { singInWithGoogle, user } = useAuth();
+  const { isDarkMode } = useTheme();
   
   const [roomCode, setRoomCode] = useState('');
   
@@ -62,7 +65,7 @@ export function Home() {
 
       <main>
         <div className="main-content">
-          <img src={logoImg} alt="LetMeAsk" /> 
+          <img src={ isDarkMode ? logoWhiteImg : logoImg } alt="LetMeAsk" /> 
 
           <button className="create-room" onClick={handleCreateRoom} type="button">
             <img src={googleIconImg} alt="logo do Google" />

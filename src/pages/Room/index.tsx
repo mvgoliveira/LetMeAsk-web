@@ -1,10 +1,12 @@
 import { FormEvent, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 import { database } from '../../services/firebase';
 import { useAuth } from '../../hooks/useAuth';
 
 import logoImg from '../../assets/images/logo.svg';
+import logoWhiteImg from '../../assets/images/logo-white.svg';
 import emptyQuestionImg from '../../assets/images/empty-questions.svg';
 
 import { Button } from '../../components/Button';
@@ -13,7 +15,9 @@ import { RoomCode } from '../../components/RoomCode';
 import { Container, UserInfoContainer } from './styles';
 import { Question } from '../../components/Question';
 import { useRoom } from '../../hooks/useRoom';
-import toast from 'react-hot-toast';
+import { useTheme } from '../../hooks/useTheme';
+
+
 
 type RoomParams = {
   id: string;
@@ -25,6 +29,7 @@ export function Room() {
   const [newQuestion, setNewQuestion] = useState('');
   const roomId = params.id;
   const { title, questions, isEnded } = useRoom(roomId);
+  const { isDarkMode } = useTheme();
 
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
@@ -71,12 +76,12 @@ export function Room() {
   async function handleSignIn() {
     await singInWithGoogle()
   }
-  
+
   return (
     <Container isEnded={isEnded}>
       <header>
         <section>
-          <img src={logoImg} alt="LetMeAsk" />
+          <img src={isDarkMode ? logoWhiteImg : logoImg} alt="LetMeAsk" />
           <RoomCode code={params.id}/>
         </section>
       </header>

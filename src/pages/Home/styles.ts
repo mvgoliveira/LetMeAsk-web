@@ -12,7 +12,7 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
 
-    background-color: #835afd;
+    background-color: var(--purple);
     color: #fff;
     
     padding: 120px 80px;
@@ -68,8 +68,9 @@ export const Container = styled.div`
         height: 50px;
         border-radius: 8px;
         padding: 0 16px;
-        background: #fff;
-        border: 1px solid #a8a8b3;
+        background: var(--input);
+        color: var(--input-text);
+        border: 1px solid var(--input-border);
       }
 
       button {
@@ -78,16 +79,6 @@ export const Container = styled.div`
 
       button, input {
         width: 100%;
-      }
-    }
-
-    p {
-      font-size: 14px;
-      color: #737380;
-      margin-top: 16px;
-
-      a {
-        color: #e559f9;
       }
     }
   }
@@ -120,7 +111,7 @@ export const Container = styled.div`
 
   .separator {
     font-size: 14px;
-    color: #a8a8b3;
+    color: var(--separator-text);
 
     margin: 32px 0;
     display: flex;
@@ -130,7 +121,7 @@ export const Container = styled.div`
       content: '';
       flex: 1;
       height: 1px;
-      background: #c2c2cf;
+      background: var(--separator);
       margin-right: 16px;
     }
 
@@ -138,7 +129,7 @@ export const Container = styled.div`
       content: '';
       flex: 1;
       height: 1px;
-      background: #c2c2cf;
+      background: var(--separator);
       margin-left: 16px;
     }
   }

@@ -4,9 +4,9 @@ export const ButtonStyle = styled.button<{ isOutlined: boolean }>`
   height: 50px;
   border-radius: 8px;
   font-weight: 500px;
-  background: ${ props => props.isOutlined ? "#fff" : "#835afd"};
+  background: ${ props => props.isOutlined ? "var(--background)" : "#835afd"};
   
-  color: ${ props => props.isOutlined ? "#835afd" : "#fff"};
+  color: ${ props => props.isOutlined ? "var(--purple-white)" : "#fff"};
   padding: 0 32px;
 
   display: flex;
