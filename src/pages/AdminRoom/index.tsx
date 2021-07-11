@@ -1,6 +1,7 @@
 import { useHistory, useParams } from 'react-router-dom';
 
 import logoImg from '../../assets/images/logo.svg';
+import logoWhiteImg from '../../assets/images/logo-white.svg';
 import deleteImg from '../../assets/images/delete.svg';
 import emptyQuestionImg from '../../assets/images/empty-questions.svg';
 
@@ -14,6 +15,7 @@ import { useState } from 'react';
 import { DeleteQuestionModal, EndRoomModal } from '../../components/Modals';
 import toast from 'react-hot-toast';
 import { database } from '../../services/firebase';
+import { useTheme } from '../../hooks/useTheme';
 
 type RoomParams = {
   id: string;
@@ -26,6 +28,7 @@ export function AdminRoom() {
   const [modalQuestionId, setModalQuestionId] = useState('');
   const [modalRoomId, setModalRoomId] = useState('');
   const history = useHistory();
+  const { isDarkMode } = useTheme();
 
   async function handleDeleteQuestion() {   
     toast.promise(
@@ -77,7 +80,7 @@ export function AdminRoom() {
 
       <header>
         <section>
-          <img src={logoImg} alt="LetMeAsk" />
+          <img src={isDarkMode ? logoWhiteImg : logoImg} alt="LetMeAsk" />
           <div>
             <RoomCode code={params.id}/>
             { !isEnded && 
