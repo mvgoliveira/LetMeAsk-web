@@ -67,10 +67,17 @@ export function Home() {
         <div className="main-content">
           <img src={ isDarkMode ? logoWhiteImg : logoImg} alt="LetMeAsk" /> 
 
-          <button className="create-room" onClick={handleCreateRoom} type="button">
-            <img src={googleIconImg} alt="logo do Google" />
-            Crie sua sala com o Google
-          </button>
+          {user ? (
+            <button className="create-room" onClick={handleCreateRoom} type="button">
+              Crie sua sala
+            </button>
+          ) : (
+            <button className="create-room" onClick={handleCreateRoom} type="button">
+              <img src={googleIconImg} alt="logo do Google" />
+              Crie sua sala com o Google
+            </button>
+          )}
+          
           
           <div className="separator">ou entre em uma sala</div>
           

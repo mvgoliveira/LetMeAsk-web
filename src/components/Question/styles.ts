@@ -9,6 +9,10 @@ export const Container = styled.div<{ isLiked?: boolean, isAnswered: boolean, is
   border-radius: 8px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
   padding: 24px;
+  
+  & + .question {
+    margin-top: 10px;
+  }
 
   p {
     color: var(--text-200);
@@ -80,20 +84,5 @@ export const Container = styled.div<{ isLiked?: boolean, isAnswered: boolean, is
         }
       }
     }
-  }
-`;
-
-export const QuestionContainer = styled.section<{isHighlighted: boolean}>`
-  display: flex;
-
-  & + .question {
-    margin-top: 10px;
-  }
-
-  .highlight {
-    background: var(--purple);
-    
-    margin-right: ${props => props.isHighlighted ? "5px" : "0"};
-    border-radius: 8px;
   }
 `;

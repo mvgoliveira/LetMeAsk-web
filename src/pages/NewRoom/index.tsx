@@ -3,16 +3,19 @@ import { Link, useHistory } from 'react-router-dom';
 
 import illustrationImg from '../../assets/images/illustration.svg';
 import logoImg from '../../assets/images/logo.svg';
+import logoWhiteImg from '../../assets/images/logo-white.svg';
 
 import { Container } from '../Home/styles';
 import { Button } from '../../components/Button';
 import { AuthContext } from '../../contexts/AuthContext';
 import { database } from '../../services/firebase';
+import { useTheme } from '../../hooks/useTheme';
 
 export function NewRoom() {
   const { user } = useContext(AuthContext);
   const [newRoom, setNewRoom] = useState('');
   const history = useHistory();
+  const {isDarkMode} = useTheme();
 
   async function handleCreateRoom(event: FormEvent) {
     event.preventDefault();
@@ -34,14 +37,14 @@ export function NewRoom() {
   return (
     <Container>
       <aside>
-        <img src={ illustrationImg } alt="Ilustração simbolizando perguntas e respostas" />
+        <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
         <strong>Toda pergunta tem uma resposta</strong>
         <p>Aprenda e compartilhe conhecimento com outras pessoas</p>
       </aside>
 
       <main>
         <div className="main-content">
-          <img src={logoImg} alt="LetMeAsk" />
+          <img src={isDarkMode ? logoWhiteImg : logoImg} alt="LetMeAsk" />
           
           <h2>Criar uma nova sala</h2>
 

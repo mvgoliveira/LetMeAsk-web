@@ -16,6 +16,7 @@ import { DeleteQuestionModal, EndRoomModal } from '../../components/Modals';
 import toast from 'react-hot-toast';
 import { database } from '../../services/firebase';
 import { useTheme } from '../../hooks/useTheme';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 type RoomParams = {
   id: string;
@@ -84,7 +85,9 @@ export function AdminRoom() {
           <div>
             <RoomCode code={params.id}/>
             { !isEnded && 
-              <Button isOutlined onClick={() => setModalRoomId(roomId)}>Encerrar Sala</Button>
+              <Button isOutlined onClick={() => setModalRoomId(roomId)}>
+                Encerrar Sala
+              </Button>
             }
           </div>
         </section>

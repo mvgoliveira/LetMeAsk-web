@@ -58,6 +58,8 @@ export const Modal = styled.div`
       padding: 15px 30px;
       border-radius: 8px;
       cursor: pointer;
+      background: var(--input-button);
+      color: var(--input-text);
 
       &:last-child {
         background: #E73F5D;

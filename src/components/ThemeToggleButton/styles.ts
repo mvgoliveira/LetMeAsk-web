@@ -3,6 +3,6 @@ import styled from "styled-components";
 export const Container = styled.div `
   display: flex;
   position: fixed;
-  top: 93%;
-  left: 93%;
+  bottom: 5%;
+  right: 5%;
 `;

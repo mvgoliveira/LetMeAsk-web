@@ -22,13 +22,13 @@ export const Container = styled.div`
     }
 
     strong {
-      font: 700 36px 'Poppins', sans-serif;
+      font: 700 2.25rem 'Poppins', sans-serif;
       line-height: 42px;
       margin-top: 16px;
     }
 
     p {
-      font-size: 24px;
+      font-size: 1.5rem;
       line-height: 32px;
       margin-top: 16px;
       color: #f8f8f8;
@@ -58,7 +58,7 @@ export const Container = styled.div`
     }
 
     h2 {
-      font-size: 24px;
+      font-size: 1.5rem;
       margin: 64px 0 24px;
       font-family: 'Poppins', sans-serif;
     }
@@ -79,6 +79,17 @@ export const Container = styled.div`
 
       button, input {
         width: 100%;
+      }
+    }
+
+    p {
+      padding-top: 16px;
+      font-size: 0.875rem;
+      font-family: "Roboto", sans-serif; 
+      color: var(--text-300);
+
+      a {
+        color: var(--pink);
       }
     }
   }
@@ -110,7 +121,7 @@ export const Container = styled.div`
   }
 
   .separator {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--separator-text);
 
     margin: 32px 0;
@@ -131,6 +142,18 @@ export const Container = styled.div`
       height: 1px;
       background: var(--separator);
       margin-left: 16px;
+    }
+  }
+
+  @media(max-width: 800px) {
+    aside {
+      display: none;
+    }
+  }
+
+  @media(max-width: 325px) {
+    .create-room {
+
     }
   }
 `;

@@ -2,8 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div<{verticalScroll: boolean}>`
   min-height: 100vh;
-  padding-bottom: 30px;
-  padding: 0 20px 30px 20px;
+  padding: 0 0px 80px 0px;
   overflow-y: ${props => props.verticalScroll ? "hidden" : "auto"};
 
   header {
@@ -28,7 +27,15 @@ export const Container = styled.div<{verticalScroll: boolean}>`
         gap: 16px;
 
         button {
-          height: 40px;
+          @media (max-width: 360px) {
+            height: 50px;
+          }
+        }
+      }
+
+      @media (max-width: 640px) {
+        div {
+          display: grid;
         }
       }
     }
@@ -38,6 +45,7 @@ export const Container = styled.div<{verticalScroll: boolean}>`
     max-width: 800px;
     margin: 0 auto;
     height: 100%;
+    padding: 0 10px;
 
     .room-title {
       margin: 32px 0 24px;
@@ -46,7 +54,7 @@ export const Container = styled.div<{verticalScroll: boolean}>`
       
       h1 {
         font-family: 'Poppins', sans-serif;
-        font-size: 24px;
+        font-size: 1.5rem;
         color: var(--text-100);
       }
 
@@ -57,7 +65,7 @@ export const Container = styled.div<{verticalScroll: boolean}>`
         padding: 8px 16px;
         color: #fff;
         font-weight: 500;
-        font-size: 14px;
+        font-size: 0.875rem;
       }
 
       .ended-room-shield {
@@ -67,7 +75,7 @@ export const Container = styled.div<{verticalScroll: boolean}>`
         padding: 8px 16px;
         color: #fff;
         font-weight: 500;
-        font-size: 14px;
+        font-size: 0.875rem;
       }
     }
 
@@ -84,6 +92,7 @@ export const Container = styled.div<{verticalScroll: boolean}>`
         width: 150px;
         height: 150px;
       }
+      
       span {
         font-family: "Poppins";
         font-weight: 600;
@@ -93,7 +102,7 @@ export const Container = styled.div<{verticalScroll: boolean}>`
       p {
         width: 284px;
         margin-top: 8px;
-        font-size: 14px;
+        font-size: 0.875rem;
         color: var(--text-300);
       }
     }

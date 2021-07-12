@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { Container, QuestionContainer } from './styles'; 
+import { Container } from './styles'; 
 
 type QuestionProps = {
   content: string;
@@ -23,32 +23,22 @@ export function Question({
 }: QuestionProps) {
 
   return (
-    <QuestionContainer isHighlighted={isHighlighted && !isAnswered} className="question">
-      <article className="highlight">
+    <Container 
+      isLiked={liked}
+      isHighlighted={isHighlighted && !isAnswered} 
+      isAnswered={isAnswered} 
+      className="question"
+    >
+      <p> {content} </p>
+
+      <footer>
+        <div className="user-info">
+          <img src={author.avatar} alt={author.name} />
+          <span> {author.name} </span>
+        </div>
         
-      </article>
-
-      <article className="answered">
-        
-      </article>
-
-      <Container 
-        isLiked={liked}
-        isHighlighted={isHighlighted && !isAnswered} 
-        isAnswered={isAnswered} 
-      >
-        <p> {content} </p>
-
-        <footer>
-          <div className="user-info">
-            <img src={author.avatar} alt={author.name} />
-            <span> {author.name} </span>
-          </div>
-          
-          <div> {children} </div>
-        </footer>
-      </Container>
-    </QuestionContainer>
-    
+        <div> {children} </div>
+      </footer>
+    </Container>
   );
 }

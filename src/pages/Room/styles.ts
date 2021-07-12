@@ -2,10 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div<{isEnded: boolean}>`
   min-height: 100vh;
-  padding-bottom: 30px;
+  padding-bottom: 70px;
 
   header {
-    background: var(--background);
     padding: 24px;
     border-bottom: 1px solid var(--header-border);
 
@@ -18,6 +17,7 @@ export const Container = styled.div<{isEnded: boolean}>`
 
       > img {
         max-height: 45px;
+        margin-right: 30px;
       }
     }
   }
@@ -34,7 +34,7 @@ export const Container = styled.div<{isEnded: boolean}>`
       
       h1 {
         font-family: 'Poppins', sans-serif;
-        font-size: 24px;
+        font-size: 1.5rem;
         color: var(--text-100);
       }
 
@@ -45,7 +45,7 @@ export const Container = styled.div<{isEnded: boolean}>`
         padding: 8px 16px;
         color: #fff;
         font-weight: 500;
-        font-size: 14px;
+        font-size: 0.875rem;
       }
 
       .ended-room-shield {
@@ -55,7 +55,7 @@ export const Container = styled.div<{isEnded: boolean}>`
         padding: 8px 16px;
         color: #fff;
         font-weight: 500;
-        font-size: 14px;
+        font-size: 0.875rem;
       }
     }
 
@@ -87,7 +87,7 @@ export const Container = styled.div<{isEnded: boolean}>`
         > span {
           margin-left: 0;
           padding: 0;
-          font-size: 14px;
+          font-size: 0.875rem;
           color: var(--text-300);
           font-weight: 500;
           background: transparent;
@@ -97,7 +97,7 @@ export const Container = styled.div<{isEnded: boolean}>`
             border: 0;
             color: var(--purple);
             text-decoration: underline;
-            font-size: 14px;
+            font-size: 0.875rem;
             font-weight: 500;
             cursor: pointer;
           }
@@ -127,7 +127,7 @@ export const Container = styled.div<{isEnded: boolean}>`
       p {
         width: 284px;
         margin-top: 8px;
-        font-size: 14px;
+        font-size: 0.875rem;
         color: #737380;
       }
     }
@@ -152,7 +152,7 @@ export const UserInfoContainer = styled.article `
     margin-left: 8px;
     color: var(--text-200);
     font-weight: 500;
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 `;
 
