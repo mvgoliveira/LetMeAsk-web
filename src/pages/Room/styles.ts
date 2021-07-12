@@ -23,8 +23,9 @@ export const Container = styled.div<{isEnded: boolean}>`
   }
 
   main {
-    max-width: 800px;
+    max-width: 820px;
     margin: 0 auto;
+    padding: 0 10px;
 
     .room-title {
       margin: 32px 0 24px;

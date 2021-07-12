@@ -1,8 +1,9 @@
+import { useEffect } from "react";
 import { createContext, ReactNode, useState } from "react";
 
 type ScreenModeContextType = {
   isDarkMode: boolean;
-  changeScreenMode: () => void;
+  changeTheme: () => void;
 }
 
 type AuthContextProviderProps = {
@@ -12,14 +13,23 @@ type AuthContextProviderProps = {
 export const themeContext = createContext({} as ScreenModeContextType);
 
 export function ThemeContextProvider(props: AuthContextProviderProps) {
-  const [isDarkMode, setIsDarkMode] = useState(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-  function changeScreenMode() {
+  function changeTheme() {
+    localStorage.setItem('ui_theme_dark', String(!isDarkMode))
     setIsDarkMode(!isDarkMode);
   }
+
+  useEffect(() => {
+    if (!localStorage.getItem('ui_theme_dark')){
+      setIsDarkMode(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    } else {
+      setIsDarkMode(localStorage.getItem('ui_theme_dark') === "true" ? true : false);
+    }
+  }, []);
   
   return (
-    <themeContext.Provider value={{ isDarkMode, changeScreenMode }}>
+    <themeContext.Provider value={{ isDarkMode, changeTheme }}>
       { props.children }
     </themeContext.Provider>
   );

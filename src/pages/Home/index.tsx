@@ -65,7 +65,7 @@ export function Home() {
 
       <main>
         <div className="main-content">
-          <img src={ isDarkMode ? logoWhiteImg : logoImg } alt="LetMeAsk" /> 
+          <img src={ isDarkMode ? logoWhiteImg : logoImg} alt="LetMeAsk" /> 
 
           <button className="create-room" onClick={handleCreateRoom} type="button">
             <img src={googleIconImg} alt="logo do Google" />

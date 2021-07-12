@@ -9,6 +9,7 @@ import { Forbidden } from './pages/Forbidden';
 import PrivateRoute from './components/PrivateRoute';
 import { GlobalStyle } from './styles/global';
 import { useTheme } from './hooks/useTheme';
+import { ThemeToggleButton } from './components/ThemeToggleButton';
 
 export function SwitchContainer() {
   const { isDarkMode } = useTheme();
@@ -16,6 +17,7 @@ export function SwitchContainer() {
   return (
     <>
       <GlobalStyle isDarkMode={isDarkMode}/>
+      <ThemeToggleButton/>
       <Switch>
         <Route path="/" exact component={Home}/>
         <Route path="/403" exact component={Forbidden}/>
