@@ -5,7 +5,7 @@ import { useRoom } from '../../hooks/useRoom';
 import { LoadingContainer } from './styles';
 
 const PublicRoute = ({...rest}) => {
-  const roomCode = rest.location.pathname.replace('/admin/rooms/', '');
+  const roomCode = rest.location.pathname.replace('/rooms/', '');
   const { author } = useRoom(roomCode);
 
   if (!author) {
@@ -19,11 +19,11 @@ const PublicRoute = ({...rest}) => {
   
   if (author === " ") {
     return (
-      <Route {...rest}/>
+      <Redirect to={{pathname: "/403"}}/>
     )
   } else {  
     return (
-      <Redirect to={{pathname: "/403"}}/>
+      <Route {...rest}/>
     )
   }
 };

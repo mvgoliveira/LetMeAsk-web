@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { database } from "../services/firebase";
 import { useAuth } from "./useAuth";
 
@@ -43,12 +44,9 @@ export function useRoom(roomId: string) {
 
       if (!databaseRoom) {
         setAuthor(" ");
-        setIsEnded(false);
-        setQuestions([]);
-        setTitle("");
         return;
       }
-      
+
       setAuthor(databaseRoom.authorId);
       setIsEnded(databaseRoom.closedAt || false);
       
