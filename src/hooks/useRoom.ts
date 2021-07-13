@@ -37,9 +37,17 @@ export function useRoom(roomId: string) {
 
   useEffect(() => {
     const roomRef = database.ref(`rooms/${roomId}`);
-
+    
     roomRef.on('value', room => {
       const databaseRoom = room.val();
+
+      if (!databaseRoom) {
+        setAuthor(" ");
+        setIsEnded(false);
+        setQuestions([]);
+        setTitle("");
+        return;
+      }
       
       setAuthor(databaseRoom.authorId);
       setIsEnded(databaseRoom.closedAt || false);

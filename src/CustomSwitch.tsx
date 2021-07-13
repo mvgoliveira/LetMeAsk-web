@@ -10,8 +10,9 @@ import PrivateRoute from './components/PrivateRoute';
 import { GlobalStyle } from './styles/global';
 import { useTheme } from './hooks/useTheme';
 import { ThemeToggleButton } from './components/ThemeToggleButton';
+import PublicRoute from './components/PublicRoute';
 
-export function SwitchContainer() {
+export function CustomSwitch() {
   const { isDarkMode } = useTheme();
 
   return (
@@ -21,9 +22,8 @@ export function SwitchContainer() {
       <Switch>
         <Route path="/" exact component={Home}/>
         <Route path="/403" exact component={Forbidden}/>
-        <Route path="/403" exact component={Forbidden}/>
         <Route path="/rooms/new" component={NewRoom}/>
-        <Route path="/rooms/:id" component={Room}/>
+        <PublicRoute path="/rooms/:id" component={Room}/>
         <PrivateRoute path="/admin/rooms/:id" component={AdminRoom}/>
       </Switch>
     </>

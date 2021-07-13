@@ -3,14 +3,14 @@ import { BrowserRouter } from 'react-router-dom';
 import { AuthContextProvider } from './contexts/AuthContext'
 import { ThemeContextProvider } from './contexts/ThemeContext';
 
-import { SwitchContainer } from './SwitchContainer';
+import { CustomSwitch } from './CustomSwitch';
 
 function App() { 
     return (
     <BrowserRouter>
       <AuthContextProvider>
         <ThemeContextProvider>
-          <SwitchContainer/>
+          <CustomSwitch/>
         </ThemeContextProvider>
       </AuthContextProvider>
     </BrowserRouter>

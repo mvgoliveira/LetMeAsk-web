@@ -13,6 +13,7 @@ import { Button } from '../../components/Button';
 import { RoomCode } from '../../components/RoomCode';
 
 import { Container, UserInfoContainer } from './styles';
+
 import { Question } from '../../components/Question';
 import { useRoom } from '../../hooks/useRoom';
 import { useTheme } from '../../hooks/useTheme';

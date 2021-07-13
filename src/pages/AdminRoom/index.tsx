@@ -16,7 +16,6 @@ import { DeleteQuestionModal, EndRoomModal } from '../../components/Modals';
 import toast from 'react-hot-toast';
 import { database } from '../../services/firebase';
 import { useTheme } from '../../hooks/useTheme';
-import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 type RoomParams = {
   id: string;
