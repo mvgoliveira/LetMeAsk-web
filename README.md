@@ -42,7 +42,7 @@ Este projeto usa as seguintes tecnologias:
 
 ### **📝 Licença**
 
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/mvgoliveira/Podcastr_web/blob/main/LICENSE) para mais detalhes.
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/mvgoliveira/LetMeAsk-web/blob/main/LICENSE) para mais detalhes.
 
 
 <hr>
