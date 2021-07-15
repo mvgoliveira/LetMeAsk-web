@@ -5,7 +5,13 @@ O NLW é um evento online organizado pela @rocketseat, com muito código, desafi
 
 ### :man_technologist: Sobre a aplicação
 
-A trilha react da quinta edição do nlw tem o objetivo de criar um Website chamado Podcastr, um serviço de reprodução de podcasts de programação.
+A trilha react da quinta edição do nlw tem o objetivo de criar um Website chamado LetMeAsk, um serviço de Q&A (Perguntas e respostas).
+
+Este projeto usa as seguintes tecnologias:
+
+- [React](https://reactjs.org)
+- [Firebase](https://firebase.google.com/)
+- [TypeScript](https://www.typescriptlang.org/)
 
 ---
 
@@ -18,24 +24,25 @@ A trilha react da quinta edição do nlw tem o objetivo de criar um Website cham
 
 ```bash
   #  clone o repositório
-  git clone https://github.com/mvgoliveira/Podcastr_web
+  git clone https://github.com/mvgoliveira/LetMeAsk-web
 
   #  navegue até o repositório clonado
-  cd Podcastr_web
+  cd LetMeAsk-web
 
   #  baixe as dependências
   yarn
  
   #  divirta-se!
-  yarn server
-  yarn dev
+  yarn start
 ```
+
+É necessário criar uma conta no Firebase e um projeto para disponibilizar um Realtime Database em um documento .env na raíz do projeto.
 
 ---
 
 ### **📝 Licença**
 
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/mvgoliveira/Podcastr_web/blob/main/LICENSE) para mais detalhes.
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/mvgoliveira/LetMeAsk-web/blob/main/LICENSE) para mais detalhes.
 
 
 <hr>
