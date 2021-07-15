@@ -24,18 +24,19 @@ Este projeto usa as seguintes tecnologias:
 
 ```bash
   #  clone o repositório
-  git clone https://github.com/mvgoliveira/Podcastr_web
+  git clone https://github.com/mvgoliveira/LetMeAsk-web
 
   #  navegue até o repositório clonado
-  cd Podcastr_web
+  cd LetMeAsk-web
 
   #  baixe as dependências
   yarn
  
   #  divirta-se!
-  yarn server
-  yarn dev
+  yarn start
 ```
+
+É necessário criar uma conta no Firebase e um projeto para disponibilizar um Realtime Database em um documento .env na raíz do projeto.
 
 ---
 
