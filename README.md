@@ -5,7 +5,13 @@ O NLW é um evento online organizado pela @rocketseat, com muito código, desafi
 
 ### :man_technologist: Sobre a aplicação
 
-A trilha react da quinta edição do nlw tem o objetivo de criar um Website chamado Podcastr, um serviço de reprodução de podcasts de programação.
+A trilha react da quinta edição do nlw tem o objetivo de criar um Website chamado LetMeAsk, um serviço de Q&A (Perguntas e respostas).
+
+Este projeto usa as seguintes tecnologias:
+
+- [React](https://reactjs.org)
+- [Firebase](https://firebase.google.com/)
+- [TypeScript](https://www.typescriptlang.org/)
 
 ---
 
