@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
 import { database } from "../services/firebase";
 import { useAuth } from "./useAuth";
 
@@ -8,12 +7,12 @@ type QuestionType = {
   author: {
     name: string,
     avatar: string;
-  },
+  }
   content: string;
-  isAnswered: boolean;
   isHighlighted: boolean;
   likeCount: number;
   likeId: string | undefined;
+  answersCount: number; 
 }
 
 type FirebaseQuestions = Record<string, {
@@ -22,10 +21,16 @@ type FirebaseQuestions = Record<string, {
     avatar: string;
   },
   content: string;
-  isAnswered: boolean;
   isHighlighted: boolean;
   likes: Record<string, {
     authorId: string;
+  }>
+  answers: Record<string, {
+    author: {
+      name: string;
+      avatar: string;
+    };
+    content: string;
   }>
 }>
 
@@ -58,8 +63,8 @@ export function useRoom(roomId: string) {
           content: value.content,
           author: value.author,
           isHighlighted: value.isHighlighted,
-          isAnswered: value.isAnswered,
           likeCount: Object.values(value.likes ?? {}).length,
+          answersCount: Object.values(value.answers ?? {}).length,
           likeId: Object.entries(value.likes ?? {}).find(([key, like]) => like.authorId === user?.id)?.[0]
         }
       });    

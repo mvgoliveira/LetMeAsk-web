@@ -1,24 +1,22 @@
 import { FormEvent, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 import { database } from '../../services/firebase';
 import { useAuth } from '../../hooks/useAuth';
+import { useRoom } from '../../hooks/useRoom';
+import { useTheme } from '../../hooks/useTheme';
 
 import logoImg from '../../assets/images/logo.svg';
 import logoWhiteImg from '../../assets/images/logo-white.svg';
 import emptyQuestionImg from '../../assets/images/empty-questions.svg';
+import { MdQuestionAnswer } from 'react-icons/md';
 
 import { Button } from '../../components/Button';
 import { RoomCode } from '../../components/RoomCode';
+import { Question } from '../../components/Question';
 
 import { Container, UserInfoContainer } from './styles';
-
-import { Question } from '../../components/Question';
-import { useRoom } from '../../hooks/useRoom';
-import { useTheme } from '../../hooks/useTheme';
-
-
 
 type RoomParams = {
   id: string;
@@ -27,10 +25,15 @@ type RoomParams = {
 export function Room() {
   const { user, singInWithGoogle } = useAuth();
   const params = useParams<RoomParams>();
-  const [newQuestion, setNewQuestion] = useState('');
   const roomId = params.id;
+  const [newQuestion, setNewQuestion] = useState('');
   const { title, questions, isEnded } = useRoom(roomId);
   const { isDarkMode } = useTheme();
+  const history = useHistory();
+  
+  async function handleSignIn() {
+    await singInWithGoogle()
+  }
 
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
@@ -74,8 +77,8 @@ export function Room() {
     }
   }
 
-  async function handleSignIn() {
-    await singInWithGoogle()
+  async function handleRedirectToQuestionAnswers(questionId: string) {
+    history.push(`/rooms/${roomId}/${questionId}`);
   }
 
   return (
@@ -154,13 +157,22 @@ export function Room() {
             return (
               <Question 
                 key={question.id} 
+                questionId={question.id}
+                roomId={roomId}
                 content={question.content} 
                 author={question.author}
                 liked={question.likeId !== undefined}
                 isHighlighted={question.isHighlighted}
-                isAnswered={question.isAnswered}
               >
-                {!question.isAnswered && !isEnded && (
+                <button 
+                  className="answer-button" 
+                  onClick={() => handleRedirectToQuestionAnswers(question.id) 
+                }>
+                  { question.answersCount > 0 && <span>{question.answersCount}</span> }
+                  <MdQuestionAnswer size={25} color="var(--text-300)"/>
+                </button>
+
+                { !isEnded && (
                   <button 
                     className="like-button" 
                     type="button" 
@@ -179,9 +191,7 @@ export function Room() {
             )
           }) }
         </div>
-
       </main>       
-
     </Container>
   );
 }
