@@ -17,10 +17,15 @@ Este projeto usa as seguintes tecnologias:
 
 ### :desktop_computer: Páginas da aplicação
 <div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 8px">
- <img style="min-width: 300px;" src="https://user-images.githubusercontent.com/53785487/126037521-346767ae-26d0-417c-94e7-f11356aa8291.png" width="400px"/>
- <img style="min-width: 300px;" src="https://user-images.githubusercontent.com/53785487/126037649-ec3ab1a9-dfb7-4b22-a9ba-88b2219f0ed7.png" width="400px"/>
- <img style="min-width: 300px;" src="https://user-images.githubusercontent.com/53785487/126037521-346767ae-26d0-417c-94e7-f11356aa8291.png" width="400px"/>
- <img style="min-width: 300px;" src="https://user-images.githubusercontent.com/53785487/126037521-346767ae-26d0-417c-94e7-f11356aa8291.png" width="400px"/>
+ <img style="min-width: 300px;" src="https://user-images.githubusercontent.com/53785487/126038110-758e35c9-7188-4326-bc2c-a80145e1bde4.png" width="400px"/>
+ <img style="min-width: 300px;" src="https://user-images.githubusercontent.com/53785487/126038125-5646c593-5d4d-4449-a9e2-feda56677bbf.png" width="400px"/>
+ <img style="min-width: 300px;" src="https://user-images.githubusercontent.com/53785487/126038139-4892d9bc-186b-48e6-8e56-366d924a6318.png" width="400px"/>
+ <img style="min-width: 300px;" src="https://user-images.githubusercontent.com/53785487/126038192-e6fe612f-367f-4369-bd5c-2b5c729ecb17.png" width="400px"/>
+ <img style="min-width: 300px;" src="https://user-images.githubusercontent.com/53785487/126038204-d8c5e818-4b75-479d-a138-0d869a44f4d1.png" width="400px"/>
+ <img style="min-width: 300px;" src="https://user-images.githubusercontent.com/53785487/126038228-236b925b-5cd8-448b-938a-0f19141c1ec5.png" width="400px"/>
+  <img style="min-width: 300px;" src="https://user-images.githubusercontent.com/53785487/126038249-fda3295b-5a90-4bcf-aa47-df52716900c5.png" width="400px"/>
+ <img style="min-width: 300px;" src="https://user-images.githubusercontent.com/53785487/126038278-62c9b5a2-dbcb-4923-941e-093c1dc0735e.png" width="400px"/>
+
 </div>
 
 ---
