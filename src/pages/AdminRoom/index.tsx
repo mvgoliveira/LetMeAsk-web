@@ -116,7 +116,7 @@ export function AdminRoom() {
             
             : <></>}
 
-          { questions.map((question, index) => {
+          { questions.map(question => {
             return (
               <Question 
                 roomId={roomId}

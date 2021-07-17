@@ -163,7 +163,12 @@ export function QuestionPage() {
 
         { answers.map(answer => {
           return (
-            <Answer author={answer.author} content={answer.content} liked={answer.likeId !== undefined}>
+            <Answer 
+              author={answer.author} 
+              content={answer.content} 
+              liked={answer.likeId !== undefined}
+              key={answer.id}
+            >
               <button 
                 className="like-button" 
                 type="button" 
