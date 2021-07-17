@@ -1,4 +1,7 @@
+import { useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { database } from '../../services/firebase';
 
 import logoImg from '../../assets/images/logo.svg';
 import logoWhiteImg from '../../assets/images/logo-white.svg';
@@ -9,13 +12,11 @@ import { RoomCode } from '../../components/RoomCode';
 import { Question } from '../../components/Question';
 import { Button } from '../../components/Button';
 
-import { useRoom } from '../../hooks/useRoom';
-import { Container } from './styles';
-import { useState } from 'react';
-import { DeleteQuestionModal, EndRoomModal } from '../../components/Modals';
-import toast from 'react-hot-toast';
-import { database } from '../../services/firebase';
 import { useTheme } from '../../hooks/useTheme';
+import { useRoom } from '../../hooks/useRoom';
+
+import { Container } from './styles';
+import { DeleteQuestionModal, EndRoomModal } from '../../components/Modals';
 
 type RoomParams = {
   id: string;
@@ -57,12 +58,6 @@ export function AdminRoom() {
   async function handleHighlightQuestion(questionId: string, highlighted: boolean) {
     database.ref(`rooms/${roomId}/questions/${questionId}`).update({
       isHighlighted: !highlighted
-    })
-  }
-
-  async function handleCheckQuestionAsAnswered(questionId: string, isAnswered: boolean) {
-    database.ref(`rooms/${roomId}/questions/${questionId}`).update({
-      isAnswered: !isAnswered
     })
   }
 
@@ -124,22 +119,17 @@ export function AdminRoom() {
           { questions.map(question => {
             return (
               <Question 
+                roomId={roomId}
+                questionId={question.id}
                 key={question.id} 
                 content={question.content} 
                 author={question.author} 
                 isHighlighted={question.isHighlighted}
-                isAnswered={question.isAnswered} 
               >
                 <button type="button" className="highlight-button" onClick={() => handleHighlightQuestion(question.id, question.isHighlighted)}>
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="12.0003" cy="11.9998" r="9.00375" stroke="#737380" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M8.44287 12.3391L10.6108 14.507L10.5968 14.493L15.4878 9.60193" stroke="#737380" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </button>
-
-                <button type="button" className="answered-button" onClick={() => handleCheckQuestionAsAnswered(question.id, question.isAnswered)}>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 17.9999H18C19.657 17.9999 21 16.6569 21 14.9999V6.99988C21 5.34288 19.657 3.99988 18 3.99988H6C4.343 3.99988 3 5.34288 3 6.99988V14.9999C3 16.6569 4.343 17.9999 6 17.9999H7.5V20.9999L12 17.9999Z" stroke="#737380" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </button>
 

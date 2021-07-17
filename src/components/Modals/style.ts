@@ -62,7 +62,7 @@ export const Modal = styled.div`
       color: var(--input-text);
 
       &:last-child {
-        background: #E73F5D;
+        background: var(--red);
         color: #fff;
       }
     }

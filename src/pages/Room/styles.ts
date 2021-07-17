@@ -155,7 +155,3 @@ export const UserInfoContainer = styled.article `
     font-size: 0.875rem;
   }
 `;
-
-export const likeButton = styled.button<{isLiked: boolean}>`
-  
-`

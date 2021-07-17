@@ -45,8 +45,10 @@ export const GlobalStyle = createGlobalStyle<{isDarkMode: boolean}>`
 
     --input-button: ${props => props.isDarkMode ? "#3b3b3b" : "#dedede"};
 
-    --answered-question: ${props => props.isDarkMode ? "#303030" : "#DBDCDD"};;
-
+    --answered-question: ${props => props.isDarkMode ? "#303030" : "#DBDCDD"};
+    
+    --answer-line: ${props => props.isDarkMode ? "#292929" : "#e6e6e6"};
+    
     // text
 
     --text-100: ${props => props.isDarkMode ? "#fefefe" : "#29292e"};;
@@ -57,7 +59,13 @@ export const GlobalStyle = createGlobalStyle<{isDarkMode: boolean}>`
 
     // header 
 
-    --header-border: ${props => props.isDarkMode ? "#3b3b3b" : "#E2E2E2"};;
+    --header-border: ${props => props.isDarkMode ? "#3b3b3b" : "#E2E2E2"};
+
+    //Questions
+
+    --answer-background: ${props => props.isDarkMode ? "#262626" : "#f2f2f2"}
+
+
   }
 
   /* width */

@@ -5,8 +5,9 @@ import { useRoom } from '../../hooks/useRoom';
 import { LoadingContainer } from './styles';
 
 const PublicRoute = ({...rest}) => {
-  const roomCode = rest.location.pathname.replace('/rooms/', '');
-  const { author } = useRoom(roomCode);
+  var roomCode = rest.location.pathname.replace('/rooms/', '');
+  roomCode = roomCode.split('/')
+  const { author } = useRoom(roomCode[0]);
 
   if (!author) {
     return (
