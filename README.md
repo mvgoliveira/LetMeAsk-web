@@ -17,10 +17,10 @@ Este projeto usa as seguintes tecnologias:
 
 ### :desktop_computer: Páginas da aplicação
 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr;">
- <img src="https://user-images.githubusercontent.com/53785487/126037521-346767ae-26d0-417c-94e7-f11356aa8291.png" width="600px"/>
- <img src="https://user-images.githubusercontent.com/53785487/126037649-ec3ab1a9-dfb7-4b22-a9ba-88b2219f0ed7.png" width="600px"/>
- <img src="https://user-images.githubusercontent.com/53785487/126037521-346767ae-26d0-417c-94e7-f11356aa8291.png" width="600px"/>
- <img src="https://user-images.githubusercontent.com/53785487/126037521-346767ae-26d0-417c-94e7-f11356aa8291.png" width="600px"/>
+ <img src="https://user-images.githubusercontent.com/53785487/126037521-346767ae-26d0-417c-94e7-f11356aa8291.png" width="300px"/>
+ <img src="https://user-images.githubusercontent.com/53785487/126037649-ec3ab1a9-dfb7-4b22-a9ba-88b2219f0ed7.png" width="300px"/>
+ <img src="https://user-images.githubusercontent.com/53785487/126037521-346767ae-26d0-417c-94e7-f11356aa8291.png" width="300px"/>
+ <img src="https://user-images.githubusercontent.com/53785487/126037521-346767ae-26d0-417c-94e7-f11356aa8291.png" width="300px"/>
 </div>
 
 ---
