@@ -36,7 +36,7 @@ Este projeto usa as seguintes tecnologias:
   yarn start
 ```
 
-É necessário criar uma conta no Firebase e um projeto para disponibilizar um Realtime Database em um documento .env na raíz do projeto.
+É necessário criar uma conta no Firebase e um projeto para disponibilizar um Realtime Database e suas configurações em um documento .env na raíz do projeto.
 
 ---
 
