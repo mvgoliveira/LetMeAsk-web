@@ -18,9 +18,9 @@ Este projeto usa as seguintes tecnologias:
 ### :desktop_computer: Páginas da aplicação
 <div style="display: flex; grid-template-columns: 1fr 1fr; grid-gap: 8px">
 <!--  <img style="display: flex; grid-template-columns: 1fr 1fr 1fr" src="https://user-images.githubusercontent.com/53785487/126037521-346767ae-26d0-417c-94e7-f11356aa8291.png" width="100%"/> -->
- <div style="background: tomato; width: 100%;"></div>
- <div style="background: tomato; width: 100%;"></div>
- <div style="background: tomato; width: 100%;"></div>
+ <div style="background: tomato; min-width: 300px;"></div>
+ <div style="background: tomato; min-width: 300px;"></div>
+ <div style="background: tomato; min-width: 300px;"></div>
 <!--  <img src="https://user-images.githubusercontent.com/53785487/126037649-ec3ab1a9-dfb7-4b22-a9ba-88b2219f0ed7.png" width="100%"/>
  <img src="https://user-images.githubusercontent.com/53785487/126037521-346767ae-26d0-417c-94e7-f11356aa8291.png" width="100%"/>
  <img src="https://user-images.githubusercontent.com/53785487/126037521-346767ae-26d0-417c-94e7-f11356aa8291.png" width="100%"/> -->
