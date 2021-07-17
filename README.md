@@ -48,13 +48,6 @@ Este projeto usa as seguintes tecnologias:
 
 É necessário criar uma conta no Firebase e um projeto para disponibilizar um Realtime Database e suas configurações em um documento .env na raíz do projeto.
 
----
-
-### **📝 Licença**
-
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/mvgoliveira/LetMeAsk-web/blob/main/LICENSE) para mais detalhes.
-
-
 <hr>
 
 Feito com :hearts: por **[Marcus Oliveira](https://www.linkedin.com/in/marcus-oliveira-3b92011a7/)**.
