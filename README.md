@@ -16,7 +16,9 @@ Este projeto usa as seguintes tecnologias:
 ---
 
 ### :desktop_computer: Páginas da aplicação
-
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr">
+<img src="https://user-images.githubusercontent.com/53785487/126037521-346767ae-26d0-417c-94e7-f11356aa8291.png"/>
+</div>
 
 ---
 
