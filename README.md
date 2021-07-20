@@ -15,7 +15,7 @@ Este projeto usa as seguintes tecnologias:
 
 ---
 
-### :desktop_computer: Páginas da aplicação
+### :desktop_computer: Páginas da aplicação (Tema escuro)
 <div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 8px">
  <img style="min-width: 300px;" src="https://user-images.githubusercontent.com/53785487/126038110-758e35c9-7188-4326-bc2c-a80145e1bde4.png" width="400px"/>
  <img style="min-width: 300px;" src="https://user-images.githubusercontent.com/53785487/126038125-5646c593-5d4d-4449-a9e2-feda56677bbf.png" width="400px"/>
