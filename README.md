@@ -13,6 +13,8 @@ Este projeto usa as seguintes tecnologias:
 - [Firebase](https://firebase.google.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 
+Hospedagem: Para acessar o site hospeadado no firebase (clique aqui)[https://letmeask-marcus.web.app]
+
 ---
 
 ### :desktop_computer: Páginas da aplicação (Tema escuro)
