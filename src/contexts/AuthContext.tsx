@@ -20,6 +20,8 @@ type AuthContextProviderProps = {
 
 export const AuthContext = createContext({} as AuthContextType);
 
+declare var google: any
+
 export function AuthContextProvider(props: AuthContextProviderProps) {
 
   const [ user, setUser ] = useState<UserType>();
@@ -39,6 +41,14 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
           name: displayName,
           avatar: photoURL
         })
+      } else {
+        google.accounts.id.initialize({
+          client_id: process.env.REACT_APP_GOOGLE_API_CLIENT_ID,
+          callback: singInWithGoogleOneTap
+        });
+        google.accounts.id.prompt((notification: any) => {
+          console.log(notification);
+        });
       }
     })
 
@@ -46,6 +56,27 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
       unsubscribe();
     }
   }, [])
+
+  async function singInWithGoogleOneTap(response:any) {
+    const authCredential = firebase.auth.GoogleAuthProvider.credential(response.credential);
+
+    const res = await auth.signInWithCredential(authCredential);
+
+    if (res.user) {
+      const { displayName, photoURL, uid } = res.user;
+
+      if (!displayName || !photoURL ) {
+        toast.error("Missing information from Google Account");
+        return;
+      }
+
+      setUser({
+        id: uid,
+        name: displayName,
+        avatar: photoURL
+      })
+    }  
+  }
 
   async function singInWithGoogle() {    
     try {

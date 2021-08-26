@@ -1,17 +1,19 @@
 import { Route, Switch } from 'react-router-dom';
 
-import { Home } from "./pages/Home/index";
+import { QuestionPage } from './pages/QuestionPage';
 import { NewRoom } from "./pages/NewRoom/index";
-import { Room } from "./pages/Room/index";
 import { AdminRoom } from './pages/AdminRoom';
 import { Forbidden } from './pages/Forbidden';
-import { QuestionPage } from './pages/QuestionPage';
+import { Home } from "./pages/Home/index";
+import { Room } from "./pages/Room/index";
 
-import PrivateRoute from './components/PrivateRoute';
-import { GlobalStyle } from './styles/global';
-import { useTheme } from './hooks/useTheme';
 import { ThemeToggleButton } from './components/ThemeToggleButton';
+import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
+
+import { GlobalStyle } from './styles/global';
+
+import { useTheme } from './hooks/useTheme';
 
 export function CustomSwitch() {
   const { isDarkMode } = useTheme();
