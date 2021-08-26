@@ -6,7 +6,7 @@ import { ThemeContextProvider } from './contexts/ThemeContext';
 import { CustomSwitch } from './CustomSwitch';
 
 function App() { 
-    return (
+  return (
     <BrowserRouter>
       <AuthContextProvider>
         <ThemeContextProvider>
