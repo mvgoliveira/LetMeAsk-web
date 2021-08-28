@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 import { database } from '../../services/firebase';
@@ -28,7 +28,7 @@ export function Room() {
   const roomId = params.id;
   const [newQuestion, setNewQuestion] = useState('');
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
-  const { title, questions, isEnded } = useRoom(roomId);
+  const { title, questions, isEnded, author } = useRoom(roomId);
   const { isDarkMode } = useTheme();
   const history = useHistory();
   
@@ -112,7 +112,14 @@ export function Room() {
                         <p>{user.name}</p>
                       </article>
 
+                      { user.id === author && (
+                        <article>
+                          <Link to={`/admin/rooms/${roomId}`}>visualizar como administrador</Link>
+                        </article>
+                      )}
+
                       <button type="button" onClick={handleLogout}>Sair</button>
+
                     </section>
                   </UserDropMenu>
             }

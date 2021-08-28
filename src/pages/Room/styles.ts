@@ -183,14 +183,16 @@ export const UserDropMenu = styled.div<{isOpen: boolean}>`
     z-index: 11;
     background-color: var(--input);
     width: 300px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
-    padding: 30px 16px;
+    box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.2);
+    padding: 30px 0px;
     right: 0;
     top: 65px;
 
     border-radius: 8px;
 
-    .userInfos {
+    article {
+      border-bottom: 1px solid rgb(100,100,100,0.5);
+
       display: flex;
       flex-direction: column;
       width: 100%;
@@ -213,7 +215,19 @@ export const UserDropMenu = styled.div<{isOpen: boolean}>`
         text-align: center;
       }
 
-      border-bottom: 1px solid rgb(100,100,100,0.5);
+      a {
+        text-decoration: none;
+        color: var(--text-100);
+        text-align: center;
+        padding: 30px 45px;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        width: 100%;
+        
+        &:hover {
+          background: var(--input-button-transparent-hover);
+        }
+      }
     }
 
     > button {
@@ -222,7 +236,7 @@ export const UserDropMenu = styled.div<{isOpen: boolean}>`
       padding: 10px 20px;
       border: none;
       border-radius: 4px;
-      background: var(--text-100);
+      background: var(--input-button);
       cursor: pointer;
     }
   }
