@@ -236,7 +236,8 @@ export const UserDropMenu = styled.div<{isOpen: boolean}>`
       padding: 10px 20px;
       border: none;
       border-radius: 4px;
-      background: var(--input-button);
+      color: var(--background);
+      background: var(--input-button-2);
       cursor: pointer;
     }
   }

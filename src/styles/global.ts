@@ -43,7 +43,9 @@ export const GlobalStyle = createGlobalStyle<{isDarkMode: boolean}>`
 
     --input: ${props => props.isDarkMode ? "#3b3b3b" : "#fff"};
 
-    --input-button: ${props => props.isDarkMode ? "#f2f2f2" : "#dedede"};
+    --input-button: ${props => props.isDarkMode ? "#4a4a4a" : "#dedede"};
+
+    --input-button-2: ${props => props.isDarkMode ? "#fafafa" : "#3b3b3b"};
 
     --input-button-transparent-hover: ${props => props.isDarkMode ? "#2e2e2e" : "#fafafa"};
 
