@@ -16,23 +16,31 @@ import { Button } from '../../components/Button';
 import { RoomCode } from '../../components/RoomCode';
 import { Question } from '../../components/Question';
 
-import { Container, UserInfoContainer } from './styles';
+import { Container, UserInfoContainer, UserDropMenu } from './styles';
 
 type RoomParams = {
   id: string;
 }
 
 export function Room() {
-  const { user, singInWithGoogle } = useAuth();
+  const { user, signInWithGoogle, logOut } = useAuth();
   const params = useParams<RoomParams>();
   const roomId = params.id;
   const [newQuestion, setNewQuestion] = useState('');
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const { title, questions, isEnded } = useRoom(roomId);
   const { isDarkMode } = useTheme();
   const history = useHistory();
   
   async function handleSignIn() {
-    await singInWithGoogle()
+    if (!user) {
+      await signInWithGoogle();
+    }
+  }
+
+  async function handleLogout() {
+    setIsProfileMenuOpen(false);
+    logOut();
   }
 
   async function handleSendQuestion(event: FormEvent) {
@@ -86,7 +94,29 @@ export function Room() {
       <header>
         <section>
           <img src={isDarkMode ? logoWhiteImg : logoImg} alt="LetMeAsk" />
-          <RoomCode code={params.id}/>
+          <article>
+            <RoomCode code={params.id}/>
+            { !user 
+                ? (<></>) 
+                
+                : <UserDropMenu isOpen={isProfileMenuOpen}>
+                    <img 
+                      src={user.avatar} 
+                      alt={user.name} 
+                      onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
+                    />
+
+                    <section>
+                      <article className="userInfos">
+                        <img src={user.avatar} alt={user.name} />
+                        <p>{user.name}</p>
+                      </article>
+
+                      <button type="button" onClick={handleLogout}>Sair</button>
+                    </section>
+                  </UserDropMenu>
+            }
+          </article>
         </section>
       </header>
 

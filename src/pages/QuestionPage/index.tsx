@@ -32,7 +32,7 @@ export function QuestionPage() {
   
   const { title, questions, isEnded } = useRoom(roomId);
   const { answers } = useQuestion(roomId, questionId);
-  const { user, singInWithGoogle } = useAuth();
+  const { user, signInWithGoogle } = useAuth();
   const { isDarkMode } = useTheme();
   const history = useHistory();
 
@@ -49,7 +49,9 @@ export function QuestionPage() {
   }
     
     async function handleSignIn() {
-      await singInWithGoogle()
+      if (!user) {
+        await signInWithGoogle()
+      }
     }
 
     async function handleSendAnswer(event: FormEvent) {

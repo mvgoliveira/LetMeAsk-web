@@ -19,14 +19,14 @@ import { useTheme } from '../../hooks/useTheme';
 
 export function Home() {
   const history = useHistory();
-  const { singInWithGoogle, user } = useAuth();
+  const { signInWithGoogle, user } = useAuth();
   const { isDarkMode } = useTheme();
   
   const [roomCode, setRoomCode] = useState('');
   
   async function handleCreateRoom() {    
     if (!user) {
-      await singInWithGoogle();
+      await signInWithGoogle();
     }
 
     history.push('/rooms/new');    

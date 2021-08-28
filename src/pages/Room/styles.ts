@@ -8,7 +8,7 @@ export const Container = styled.div<{isEnded: boolean}>`
     padding: 24px;
     border-bottom: 1px solid var(--header-border);
 
-    section {
+    > section {
       max-width: 1120px;
       margin: 0 auto;
       display: flex;
@@ -18,6 +18,11 @@ export const Container = styled.div<{isEnded: boolean}>`
       > img {
         max-height: 45px;
         margin-right: 30px;
+      }
+
+      article {
+        display: flex;
+        gap: 20px;
       }
     }
   }
@@ -92,7 +97,7 @@ export const Container = styled.div<{isEnded: boolean}>`
           font-weight: 500;
           background: transparent;
 
-          button {
+          > button {
             background: transparent;
             border: 0;
             color: var(--purple);
@@ -153,5 +158,72 @@ export const UserInfoContainer = styled.article `
     color: var(--text-200);
     font-weight: 500;
     font-size: 0.875rem;
+  }
+`;
+
+export const UserDropMenu = styled.div<{isOpen: boolean}>`
+  position: relative;
+  display: inline-block;
+
+  > img {
+    border-radius: 100%;
+    width: 40px;
+    border: 2px solid var(--purple);
+    cursor: pointer;
+
+    &:hover {
+      border: 2px solid var(--pink);
+    }
+  }
+
+  section {
+    position: absolute;
+    display: ${props => props.isOpen ? "flex" : "none"};
+    flex-direction: column;
+    z-index: 11;
+    background-color: var(--input);
+    width: 300px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+    padding: 30px 16px;
+    right: 0;
+    top: 65px;
+
+    border-radius: 8px;
+
+    .userInfos {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+
+      img {
+        width: 80px;
+        border: none;
+        border-radius: 100%;
+      }
+
+      p {
+        white-space: nowrap; 
+        width: 80%; 
+        overflow: hidden;
+        text-overflow: ellipsis; 
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      border-bottom: 1px solid rgb(100,100,100,0.5);
+    }
+
+    > button {
+      /* margin-top: 30px; */
+      margin: 30px 80px 0px 80px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      background: var(--text-100);
+      cursor: pointer;
+    }
   }
 `;

@@ -5,7 +5,8 @@ import { auth, firebase } from '../services/firebase';
 
 type AuthContextType = {
   user: UserType | undefined;
-  singInWithGoogle: () => Promise<void>;
+  signInWithGoogle: () => Promise<void>;
+  logOut: () => Promise<void>;
 }
 
 type UserType = {
@@ -78,7 +79,7 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
     }  
   }
 
-  async function singInWithGoogle() {    
+  async function signInWithGoogle() {    
     try {
       const provider = new firebase.auth.GoogleAuthProvider();
       const res = await auth.signInWithPopup(provider);
@@ -103,8 +104,22 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
     }
   }
 
+  async function logOut() {
+    if (!user) {
+      console.log("Logout Error: user already logout");
+      
+    } else {
+      console.log("EXECUTEI 1");
+      auth.signOut().then(() => {
+        setUser(undefined);
+      }).catch((err) => {
+        console.log("Logout Error: ", err);
+      })
+    }
+  }
+
   return (
-    <AuthContext.Provider value={{ user, singInWithGoogle }}>
+    <AuthContext.Provider value={{ user, signInWithGoogle, logOut }}>
       { props.children }
     </AuthContext.Provider>
   );
