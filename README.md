@@ -13,7 +13,7 @@ Este projeto usa as seguintes tecnologias:
 - [Firebase](https://firebase.google.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 
-**Hospedagem**: Para acessar o site hospeadado no firebase **[clique aqui](https://letmeask-marcus.web.app)**.
+**Hospedagem**: Para acessar o site hospeadado no netlify **[clique aqui](https://letmeask-mark.netlify.app)**.
 
 ---
 
