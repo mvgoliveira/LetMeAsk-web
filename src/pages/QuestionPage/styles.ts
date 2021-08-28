@@ -207,11 +207,11 @@ export const UserDropMenu = styled.div<{isOpen: boolean}>`
   > img {
     border-radius: 100%;
     width: 40px;
-    border: 2px solid var(--purple);
+    border: ${props => props.isOpen ? "2px solid var(--pink)" : "2px solid var(--purple)"};
     cursor: pointer;
 
     &:hover {
-      border: 2px solid var(--pink);
+      border: ${props => props.isOpen ? "2px solid var(--purple)" : "2px solid var(--pink)"}
     }
   }
 
