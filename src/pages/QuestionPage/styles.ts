@@ -8,7 +8,7 @@ export const Container = styled.div `
     padding: 24px;
     border-bottom: 1px solid var(--header-border);
 
-    section {
+    > section {
       max-width: 1120px;
       margin: 0 auto;
       display: flex;
@@ -19,10 +19,15 @@ export const Container = styled.div `
         max-height: 45px;
         margin-right: 30px;
       }
+
+      article {
+        display: flex;
+        gap: 20px;
+      }
     }
   }
 
-  main {
+  > main {
     max-width: 820px;
     margin: 0 auto;
     padding: 0 10px;
@@ -149,7 +154,7 @@ export const Form = styled.form<{isAnswerFormOpen: boolean}>`
     }
   }
 
-  section {
+  > section {
     max-width: 800px;
     width: 100%;
     display: flex;
@@ -191,6 +196,96 @@ export const Form = styled.form<{isAnswerFormOpen: boolean}>`
           color: #fff;
         }
     }
+    }
+  }
+`;
+
+export const UserDropMenu = styled.div<{isOpen: boolean}>`
+  position: relative;
+  display: inline-block;
+
+  > img {
+    border-radius: 100%;
+    width: 40px;
+    border: 2px solid var(--purple);
+    cursor: pointer;
+
+    &:hover {
+      border: 2px solid var(--pink);
+    }
+  }
+
+  section {
+    position: absolute;
+    display: ${props => props.isOpen ? "flex" : "none"};
+    flex-direction: column;
+    z-index: 11;
+    background-color: var(--input);
+    width: 300px;
+    box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.2);
+    padding: 30px 0px;
+    right: 0;
+    top: 65px;
+
+    border-radius: 8px;
+
+    article {
+      border-bottom: 1px solid rgb(100,100,100,0.5);
+
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+
+      img {
+        width: 80px;
+        border: none;
+        border-radius: 100%;
+      }
+
+      > p {
+        white-space: nowrap; 
+        overflow: hidden;
+        text-overflow: ellipsis; 
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      a {
+        display: flex;
+        text-decoration: none;
+        color: var(--text-100);
+        text-align: center;
+        padding: 30px 10px;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        
+        &:hover {
+          background: var(--input-button-transparent-hover);
+        }
+
+        svg {
+          height: 20px;
+          width: 20px;
+          margin-right: 8px;
+        }
+      }
+    }
+
+    > button {
+      /* margin-top: 30px; */
+      margin: 30px 80px 0px 80px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      color: var(--background);
+      background: var(--input-button-2);
+      cursor: pointer;
     }
   }
 `;

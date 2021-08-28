@@ -206,9 +206,8 @@ export const UserDropMenu = styled.div<{isOpen: boolean}>`
         border-radius: 100%;
       }
 
-      p {
+      > p {
         white-space: nowrap; 
-        width: 80%; 
         overflow: hidden;
         text-overflow: ellipsis; 
         margin-bottom: 30px;
@@ -216,16 +215,25 @@ export const UserDropMenu = styled.div<{isOpen: boolean}>`
       }
 
       a {
+        display: flex;
         text-decoration: none;
         color: var(--text-100);
         text-align: center;
-        padding: 30px 45px;
+        padding: 30px 10px;
         border-radius: 8px;
         font-size: 0.9rem;
         width: 100%;
+        justify-content: center;
+        align-items: center;
         
         &:hover {
           background: var(--input-button-transparent-hover);
+        }
+
+        svg {
+          height: 20px;
+          width: 20px;
+          margin-right: 8px;
         }
       }
     }

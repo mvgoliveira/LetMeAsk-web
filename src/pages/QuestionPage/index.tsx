@@ -1,6 +1,8 @@
-import { database } from "../../services/firebase";
-import { useHistory, useParams } from "react-router-dom";
 import { FormEvent, useState } from "react";
+import { Link, useHistory, useParams } from "react-router-dom";
+import {IoChevronBack} from 'react-icons/io5';
+import {RiAdminFill} from 'react-icons/ri';
+import {ImReply} from 'react-icons/im';
 import toast from "react-hot-toast";
 
 import { useQuestion } from "../../hooks/useQuestion";
@@ -10,15 +12,15 @@ import { useRoom } from "../../hooks/useRoom";
 
 import logoWhiteImg from '../../assets/images/logo-white.svg';
 import logoImg from '../../assets/images/logo.svg';
-import {ImReply} from 'react-icons/im';
-import {IoChevronBack} from 'react-icons/io5';
 
 import { Question } from "../../components/Question";
 import { RoomCode } from "../../components/RoomCode";
 import { Answer } from "../../components/Answer";
 import { Button } from "../../components/Button";
 
-import { Container, Form, UserInfoContainer } from "./styles";
+import { database } from "../../services/firebase";
+
+import { Container, Form, UserInfoContainer, UserDropMenu } from "./styles";
 
 type RoomParams = {
   roomId: string;
@@ -30,9 +32,9 @@ export function QuestionPage() {
   const questionId = params.questionId;
   const roomId = params.roomId;
   
-  const { title, questions, isEnded } = useRoom(roomId);
+  const { title, questions, isEnded, author } = useRoom(roomId);
   const { answers } = useQuestion(roomId, questionId);
-  const { user, signInWithGoogle } = useAuth();
+  const { user, signInWithGoogle, logOut } = useAuth();
   const { isDarkMode } = useTheme();
   const history = useHistory();
 
@@ -41,6 +43,7 @@ export function QuestionPage() {
   
   const [newAnswer, setNewAnswer] = useState('');
   const [isAnswerFormOpen, setIsAnswerFormOpen] = useState(false);
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
 
   if (!question) {
     return (
@@ -52,6 +55,11 @@ export function QuestionPage() {
       if (!user) {
         await signInWithGoogle()
       }
+    }
+
+    async function handleLogout() {
+      setIsProfileMenuOpen(false);
+      logOut();
     }
 
     async function handleSendAnswer(event: FormEvent) {
@@ -104,7 +112,36 @@ export function QuestionPage() {
       <header>
         <section>
           <img src={isDarkMode ? logoWhiteImg : logoImg} alt="LetMeAsk" />
-          <RoomCode code={params.roomId}/>
+          <article>
+            <RoomCode code={params.roomId}/>
+            { !user 
+                ? (<></>) 
+                
+                : <UserDropMenu isOpen={isProfileMenuOpen}>
+                    <img 
+                      src={user.avatar} 
+                      alt={user.name} 
+                      onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
+                    />
+
+                    <section>
+                      <article className="userInfos">
+                        <img src={user.avatar} alt={user.name} />
+                        <p>{user.name}</p>
+                      </article>
+
+                      { user.id === author && (
+                        <article>
+                          <Link to={`/admin/rooms/${roomId}`}><RiAdminFill/> <p>visualizar como administrador</p></Link>
+                        </article>
+                      )}
+
+                      <button type="button" onClick={handleLogout}>Sair</button>
+
+                    </section>
+                  </UserDropMenu>
+            }
+          </article>
         </section>
       </header>
       

@@ -12,6 +12,7 @@ export const Container = styled.div<{isOpen: boolean}>`
   
   width: 100%;
   height: 100%;
+  padding: 15px;
   background: rgba(0,0,0,0.8);
   backdrop-filter: blur(2px);
   

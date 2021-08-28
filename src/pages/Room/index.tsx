@@ -1,5 +1,6 @@
 import { FormEvent, useState } from 'react';
 import { Link, useHistory, useParams } from 'react-router-dom';
+import {RiAdminFill} from 'react-icons/ri';
 import toast from 'react-hot-toast';
 
 import { database } from '../../services/firebase';
@@ -114,7 +115,7 @@ export function Room() {
 
                       { user.id === author && (
                         <article>
-                          <Link to={`/admin/rooms/${roomId}`}>visualizar como administrador</Link>
+                          <Link to={`/admin/rooms/${roomId}`}><RiAdminFill/> <p>visualizar como administrador</p></Link>
                         </article>
                       )}
 
